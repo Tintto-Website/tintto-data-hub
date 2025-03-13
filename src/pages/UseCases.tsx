@@ -1,12 +1,24 @@
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import UseCaseCard from "@/components/UseCaseCard";
 import AnimatedSection from "@/components/AnimatedSection";
 
 const UseCases = () => {
-  const [activeFilter, setActiveFilter] = useState("All");
+  const location = useLocation();
+  const navigate = useNavigate();
+  const queryParams = new URLSearchParams(location.search);
+  const filterParam = queryParams.get('filter');
+  
+  const [activeFilter, setActiveFilter] = useState(filterParam || "All");
+  
+  useEffect(() => {
+    if (filterParam) {
+      setActiveFilter(filterParam);
+    }
+  }, [filterParam]);
   
   const categories = [
     "All",
@@ -60,6 +72,15 @@ const UseCases = () => {
     },
   ];
   
+  const handleFilterClick = (category: string) => {
+    setActiveFilter(category);
+    if (category === "All") {
+      navigate("/use-cases");
+    } else {
+      navigate(`/use-cases?filter=${encodeURIComponent(category)}`);
+    }
+  };
+  
   const filteredUseCases = activeFilter === "All"
     ? useCases
     : useCases.filter(useCase => useCase.tags.some(tag => tag === activeFilter));
@@ -69,7 +90,7 @@ const UseCases = () => {
       <Navbar />
       
       {/* Header */}
-      <section className="pt-32 pb-20 px-6 bg-gradient-to-b from-tintto-blue-dark/30 to-tintto-dark">
+      <section className="pt-32 pb-20 px-6 bg-tintto-blue-dark/30">
         <div className="container max-w-7xl mx-auto text-center">
           <AnimatedSection>
             <span className="inline-block px-4 py-2 rounded-full bg-tintto-blue/10 border border-tintto-blue/20 text-tintto-accent text-sm font-medium mb-4">
@@ -93,7 +114,7 @@ const UseCases = () => {
                 <button
                   key={category}
                   className={`bubble-filter ${activeFilter === category ? 'active' : ''}`}
-                  onClick={() => setActiveFilter(category)}
+                  onClick={() => handleFilterClick(category)}
                 >
                   {category}
                 </button>

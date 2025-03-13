@@ -1,62 +1,134 @@
 
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-import { ArrowRight } from "lucide-react";
+import { Calendar, User, ArrowRight } from "lucide-react";
+import { Pagination, PaginationContent, PaginationItem, PaginationLink, PaginationNext, PaginationPrevious } from "@/components/ui/pagination";
+
+interface ArticleProps {
+  title: string;
+  excerpt: string;
+  author: string;
+  date: string;
+  category: string;
+  delay?: number;
+}
+
+const Article: React.FC<ArticleProps> = ({
+  title,
+  excerpt,
+  author,
+  date,
+  category,
+  delay = 0
+}) => {
+  return (
+    <AnimatedSection delay={delay}>
+      <div className="glass-card overflow-hidden group transition-all duration-300 hover:translate-y-[-5px]">
+        <div className="h-48 bg-tintto-gray-light/20"></div>
+        <div className="p-6">
+          <div className="flex items-center mb-4">
+            <span className="px-3 py-1 bg-tintto-blue/20 text-tintto-accent rounded-full text-xs">
+              {category}
+            </span>
+            <div className="flex items-center text-white/50 text-sm ml-4">
+              <Calendar className="w-4 h-4 mr-1" /> {date}
+            </div>
+            <div className="flex items-center text-white/50 text-sm ml-4">
+              <User className="w-4 h-4 mr-1" /> {author}
+            </div>
+          </div>
+          
+          <h3 className="text-xl font-bold mb-3">{title}</h3>
+          <p className="text-white/70 mb-4">{excerpt}</p>
+          
+          <Link 
+            to="#" 
+            className="flex items-center text-tintto-accent text-sm font-medium group-hover:text-tintto-blue-light transition-colors"
+          >
+            Read More <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </Link>
+        </div>
+      </div>
+    </AnimatedSection>
+  );
+};
 
 const Insights = () => {
+  const [activeFilter, setActiveFilter] = useState("All");
+  
+  const categories = [
+    "All",
+    "AI Strategy",
+    "Machine Learning",
+    "Data Analytics",
+    "Ethics",
+    "Case Studies"
+  ];
+  
   const articles = [
     {
       title: "AI Automation: The Next Step for Efficiency",
-      excerpt: "Explore how AI automation is revolutionizing business processes and creating unprecedented levels of operational efficiency.",
-      category: "AI",
-      date: "June 15, 2023",
-      image: "bg-gradient-to-br from-tintto-blue/30 to-tintto-accent/20"
+      excerpt: "Discover how AI automation is transforming business operations and creating unprecedented efficiency gains across industries.",
+      author: "Emma Johnson",
+      date: "June 12, 2023",
+      category: "AI Strategy",
+      delay: 100
     },
     {
       title: "Turning Data into Decisions: A Practical Guide",
-      excerpt: "Learn practical strategies for transforming your raw data into actionable business insights that drive informed decision-making.",
-      category: "Data",
+      excerpt: "Learn the step-by-step process of converting raw data into actionable insights that drive better business decisions.",
+      author: "Michael Chen",
       date: "May 28, 2023",
-      image: "bg-gradient-to-br from-tintto-blue-dark/40 to-tintto-blue/20"
+      category: "Data Analytics",
+      delay: 200
     },
     {
       title: "Ethics in AI: Why It Matters Now",
-      excerpt: "Understand the critical importance of ethical considerations in AI development and implementation for sustainable business growth.",
+      excerpt: "Explore the critical importance of ethical considerations in AI development and deployment for sustainable innovation.",
+      author: "Leila Patel",
+      date: "May 15, 2023",
       category: "Ethics",
-      date: "April 10, 2023",
-      image: "bg-gradient-to-br from-tintto-accent/30 to-tintto-blue/20"
+      delay: 300
     },
     {
-      title: "The Future of Machine Learning in Business",
-      excerpt: "Discover emerging trends in machine learning and how they're set to transform various business sectors in the coming years.",
+      title: "Machine Learning Models: Choosing the Right Approach",
+      excerpt: "A comprehensive guide to selecting the optimal machine learning models for different business challenges.",
+      author: "Sarah Rodriguez",
+      date: "April 30, 2023",
       category: "Machine Learning",
-      date: "March 22, 2023",
-      image: "bg-gradient-to-br from-purple-500/30 to-tintto-blue/20"
+      delay: 400
     },
     {
-      title: "Building a Data-Driven Culture",
-      excerpt: "Explore strategies for fostering a data-driven organizational culture that embraces analytics at all levels.",
-      category: "Business",
-      date: "February 15, 2023",
-      image: "bg-gradient-to-br from-tintto-blue-light/30 to-tintto-accent/20"
+      title: "Healthcare Revolution: AI-Powered Diagnostics",
+      excerpt: "How AI is transforming medical diagnostics and creating more accurate, faster patient outcomes.",
+      author: "James Wilson",
+      date: "April 15, 2023",
+      category: "Case Studies",
+      delay: 500
     },
     {
-      title: "Understanding Large Language Models",
-      excerpt: "A comprehensive guide to large language models, their capabilities, limitations, and applications in business contexts.",
-      category: "LLMs",
-      date: "January 30, 2023",
-      image: "bg-gradient-to-br from-green-500/30 to-tintto-blue/20"
+      title: "Data Strategy for Enterprise: Building Your Roadmap",
+      excerpt: "Essential components of a robust enterprise data strategy that delivers long-term value and competitive advantage.",
+      author: "David Kim",
+      date: "March 28, 2023",
+      category: "AI Strategy",
+      delay: 600
     }
   ];
+  
+  const filteredArticles = activeFilter === "All"
+    ? articles
+    : articles.filter(article => article.category === activeFilter);
 
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       
       {/* Header */}
-      <section className="pt-32 pb-20 px-6 bg-gradient-to-b from-tintto-blue-dark/30 to-tintto-dark">
+      <section className="pt-32 pb-20 px-6 bg-tintto-blue-dark/30">
         <div className="container max-w-7xl mx-auto text-center">
           <AnimatedSection>
             <span className="inline-block px-4 py-2 rounded-full bg-tintto-blue/10 border border-tintto-blue/20 text-tintto-accent text-sm font-medium mb-4">
@@ -71,35 +143,84 @@ const Insights = () => {
         </div>
       </section>
 
-      {/* Articles Grid */}
-      <section className="py-24 px-6">
+      {/* Articles */}
+      <section className="py-16 px-6">
         <div className="container max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {articles.map((article, index) => (
-              <AnimatedSection key={index} delay={index * 100 + 100}>
-                <div className="glass-card h-full overflow-hidden group">
-                  <div className={`h-48 ${article.image} p-10 flex items-center justify-center transition-all duration-500 group-hover:scale-105`}>
-                    <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
-                      <div className="w-8 h-8 rounded-full bg-white/20"></div>
-                    </div>
-                  </div>
-                  <div className="p-8">
-                    <div className="flex justify-between items-center mb-4">
-                      <span className="px-3 py-1 text-xs rounded-full bg-tintto-blue/10 text-tintto-accent">
-                        {article.category}
-                      </span>
-                      <span className="text-white/50 text-xs">{article.date}</span>
-                    </div>
-                    <h3 className="text-xl font-bold mb-3">{article.title}</h3>
-                    <p className="text-white/70 mb-6 text-sm">{article.excerpt}</p>
-                    <a href="#" className="inline-flex items-center text-tintto-accent group-hover:text-tintto-blue-light transition-colors">
-                      Read More <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-                    </a>
-                  </div>
-                </div>
-              </AnimatedSection>
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {categories.map((category) => (
+              <button
+                key={category}
+                className={`bubble-filter ${activeFilter === category ? 'active' : ''}`}
+                onClick={() => setActiveFilter(category)}
+              >
+                {category}
+              </button>
             ))}
           </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredArticles.map((article, index) => (
+              <Article
+                key={index}
+                title={article.title}
+                excerpt={article.excerpt}
+                author={article.author}
+                date={article.date}
+                category={article.category}
+                delay={article.delay}
+              />
+            ))}
+          </div>
+          
+          <div className="mt-16">
+            <Pagination>
+              <PaginationContent>
+                <PaginationItem>
+                  <PaginationPrevious href="#" />
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationLink href="#" isActive>1</PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationLink href="#">2</PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationLink href="#">3</PaginationLink>
+                </PaginationItem>
+                <PaginationItem>
+                  <PaginationNext href="#" />
+                </PaginationItem>
+              </PaginationContent>
+            </Pagination>
+          </div>
+        </div>
+      </section>
+      
+      {/* Newsletter */}
+      <section className="py-20 px-6 bg-tintto-gray">
+        <div className="container max-w-5xl mx-auto">
+          <AnimatedSection>
+            <div className="glass-card p-8 md:p-12 text-center">
+              <h2 className="text-3xl font-bold mb-6">Subscribe to Our Newsletter</h2>
+              <p className="text-white/70 max-w-2xl mx-auto mb-8">
+                Get the latest insights, articles, and updates from Tintto Data Labs delivered directly to your inbox.
+              </p>
+              <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
+                <input
+                  type="email"
+                  placeholder="Your email address"
+                  className="flex-grow px-4 py-3 bg-tintto-gray border border-white/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-tintto-accent/50"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="btn-primary whitespace-nowrap"
+                >
+                  <span>Subscribe</span>
+                </button>
+              </form>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
       

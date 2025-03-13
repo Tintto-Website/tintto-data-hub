@@ -26,7 +26,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       className={cn("h-full", className)}
     >
       <div className="glass-card p-8 h-full flex flex-col group transition-all duration-500 hover:translate-y-[-5px]">
-        <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-tintto-blue/20 to-tintto-accent/10 flex items-center justify-center mb-6 group-hover:from-tintto-blue/30 group-hover:to-tintto-accent/20 transition-all duration-300">
+        <div className="w-16 h-16 rounded-xl bg-tintto-blue/20 flex items-center justify-center mb-6 group-hover:bg-tintto-blue/30 transition-all duration-300">
           <div className="text-tintto-accent">{icon}</div>
         </div>
         

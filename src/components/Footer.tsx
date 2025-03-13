@@ -22,14 +22,14 @@ const Footer: React.FC = () => {
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center transition-all hover:bg-white/10"
+                className="w-10 h-10 rounded-full bg-tintto-gray border border-white/10 flex items-center justify-center transition-all hover:bg-tintto-gray-light"
                 aria-label="Twitter"
               >
                 <Twitter className="w-5 h-5 text-white/80" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center transition-all hover:bg-white/10"
+                className="w-10 h-10 rounded-full bg-tintto-gray border border-white/10 flex items-center justify-center transition-all hover:bg-tintto-gray-light"
                 aria-label="LinkedIn"
               >
                 <Linkedin className="w-5 h-5 text-white/80" />
@@ -113,7 +113,7 @@ const Footer: React.FC = () => {
               <li className="flex items-start">
                 <MapPin className="w-5 h-5 mr-3 text-tintto-accent flex-shrink-0 mt-0.5" />
                 <span className="text-white/60">
-                  789 Tech Lane, Suite 300,<br />Future City, USA
+                  Berlin, Germany
                 </span>
               </li>
             </ul>
