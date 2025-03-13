@@ -3,7 +3,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface UseCaseCardProps {
   title: string;
@@ -20,6 +20,13 @@ const UseCaseCard: React.FC<UseCaseCardProps> = ({
   delay = 0,
   className,
 }) => {
+  const navigate = useNavigate();
+  
+  const handleTagClick = (tag: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    navigate(`/use-cases?filter=${encodeURIComponent(tag)}`);
+  };
+  
   return (
     <AnimatedSection delay={delay} className={cn("h-full", className)}>
       <div className="glass-card p-6 h-full flex flex-col group transition-all duration-500 hover:translate-y-[-5px]">
@@ -32,13 +39,13 @@ const UseCaseCard: React.FC<UseCaseCardProps> = ({
         
         <div className="flex flex-wrap gap-2 mb-6">
           {tags.map((tag, index) => (
-            <Link
+            <button
               key={index}
-              to={`/use-cases?filter=${encodeURIComponent(tag)}`}
+              onClick={(e) => handleTagClick(tag, e)}
               className="px-2 py-1 text-xs rounded-full bg-tintto-gray border border-white/10 text-white/60 hover:bg-tintto-blue/20 transition-colors"
             >
               {tag}
-            </Link>
+            </button>
           ))}
         </div>
         

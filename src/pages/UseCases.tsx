@@ -17,20 +17,22 @@ const UseCases = () => {
   useEffect(() => {
     if (filterParam) {
       setActiveFilter(filterParam);
+    } else {
+      setActiveFilter("All");
     }
   }, [filterParam]);
   
   const categories = [
     "All",
-    "LLMs",
-    "Strategic Planning",
+    "Healthcare",
     "Finance",
+    "Marketing",
     "Performance Metrics",
     "AI Automation",
-    "Healthcare",
     "Machine Learning",
     "Data Enrichment",
-    "Marketing",
+    "Strategic Planning",
+    "LLMs",
   ];
   
   const useCases = [
@@ -109,7 +111,7 @@ const UseCases = () => {
       <section className="py-12 px-6 bg-tintto-gray">
         <div className="container max-w-7xl mx-auto">
           <AnimatedSection>
-            <div className="flex flex-wrap justify-center gap-3">
+            <div className="flex flex-wrap justify-center gap-3 mb-12">
               {categories.map((category) => (
                 <button
                   key={category}
@@ -122,17 +124,29 @@ const UseCases = () => {
             </div>
           </AnimatedSection>
           
-          <div className="use-case-grid">
-            {filteredUseCases.map((useCase, index) => (
-              <UseCaseCard
-                key={index}
-                title={useCase.title}
-                description={useCase.description}
-                tags={useCase.tags}
-                delay={useCase.delay}
-              />
-            ))}
-          </div>
+          {filteredUseCases.length > 0 ? (
+            <div className="use-case-grid">
+              {filteredUseCases.map((useCase, index) => (
+                <UseCaseCard
+                  key={index}
+                  title={useCase.title}
+                  description={useCase.description}
+                  tags={useCase.tags}
+                  delay={useCase.delay}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <h3 className="text-xl text-white mb-4">No use cases found for this filter</h3>
+              <button 
+                className="btn-secondary"
+                onClick={() => handleFilterClick("All")}
+              >
+                Show All Use Cases
+              </button>
+            </div>
+          )}
         </div>
       </section>
       
