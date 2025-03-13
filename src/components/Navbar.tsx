@@ -43,20 +43,20 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 md:px-12",
         scrolled
-          ? "py-4 bg-tintto-dark/80 backdrop-blur-lg shadow-lg"
-          : "py-6 bg-transparent"
+          ? "py-3 bg-tintto-dark/90 backdrop-blur-lg shadow-lg"
+          : "py-4 bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link to="/" className="flex items-center z-20">
-          <span className="text-white font-bold text-xl md:text-2xl">
+          <span className="text-white font-bold text-lg">
             Tintto<span className="text-tintto-accent">Data</span>Labs
           </span>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center">
-          <NavigationMenu className="mr-4">
+        <div className="hidden md:flex items-center space-x-2">
+          <NavigationMenu>
             <NavigationMenuList>
               <NavigationMenuItem>
                 <Link to="/" className={cn(
@@ -70,7 +70,7 @@ const Navbar = () => {
               {/* Solutions Dropdown */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="nav-item">
-                  Solutions <ChevronDown className="h-4 w-4 ml-1" />
+                  Solutions
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="bg-tintto-gray border border-white/10 p-2 rounded-md shadow-lg">
                   <ul className="grid gap-1 p-1 w-40">
@@ -101,7 +101,7 @@ const Navbar = () => {
               {/* Company Dropdown */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="nav-item">
-                  Company <ChevronDown className="h-4 w-4 ml-1" />
+                  Company
                 </NavigationMenuTrigger>
                 <NavigationMenuContent className="bg-tintto-gray border border-white/10 p-2 rounded-md shadow-lg">
                   <ul className="grid gap-1 p-1 w-40">
@@ -161,7 +161,7 @@ const Navbar = () => {
           
           <Link
             to="/contact"
-            className="btn-primary"
+            className="btn-primary text-sm py-2 px-4"
           >
             <span>Get Started</span>
           </Link>
@@ -174,9 +174,9 @@ const Navbar = () => {
           aria-label="Toggle menu"
         >
           {isMenuOpen ? (
-            <X className="w-6 h-6" />
+            <X className="w-5 h-5" />
           ) : (
-            <Menu className="w-6 h-6" />
+            <Menu className="w-5 h-5" />
           )}
         </button>
 
@@ -301,7 +301,7 @@ const Navbar = () => {
             <Link
               to="/contact"
               className={cn(
-                "btn-primary mt-4",
+                "btn-primary text-sm",
                 isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
                 "transition-all duration-300 delay-[250ms]"
               )}

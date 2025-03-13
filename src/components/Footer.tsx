@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-12">
           <div className="col-span-1">
             <Link to="/" className="inline-block mb-6">
-              <span className="text-white font-bold text-2xl">
+              <span className="text-white font-bold text-lg">
                 Tintto<span className="text-tintto-accent">Data</span>Labs
               </span>
             </Link>
@@ -22,17 +22,17 @@ const Footer: React.FC = () => {
             <div className="flex space-x-4">
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-tintto-gray border border-white/10 flex items-center justify-center transition-all hover:bg-tintto-gray-light"
+                className="w-8 h-8 rounded-full bg-tintto-gray border border-white/10 flex items-center justify-center transition-all hover:bg-tintto-gray-light"
                 aria-label="Twitter"
               >
-                <Twitter className="w-5 h-5 text-white/80" />
+                <Twitter className="w-4 h-4 text-white/80" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full bg-tintto-gray border border-white/10 flex items-center justify-center transition-all hover:bg-tintto-gray-light"
+                className="w-8 h-8 rounded-full bg-tintto-gray border border-white/10 flex items-center justify-center transition-all hover:bg-tintto-gray-light"
                 aria-label="LinkedIn"
               >
-                <Linkedin className="w-5 h-5 text-white/80" />
+                <Linkedin className="w-4 h-4 text-white/80" />
               </a>
             </div>
           </div>
@@ -103,15 +103,15 @@ const Footer: React.FC = () => {
             <h3 className="text-white font-semibold text-lg mb-6">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start">
-                <Mail className="w-5 h-5 mr-3 text-tintto-accent flex-shrink-0 mt-0.5" />
+                <Mail className="w-4 h-4 mr-3 text-tintto-accent flex-shrink-0 mt-0.5" />
                 <span className="text-white/60">hello@tinttodatalabs.com</span>
               </li>
               <li className="flex items-start">
-                <Phone className="w-5 h-5 mr-3 text-tintto-accent flex-shrink-0 mt-0.5" />
+                <Phone className="w-4 h-4 mr-3 text-tintto-accent flex-shrink-0 mt-0.5" />
                 <span className="text-white/60">+1 (555) 789-1234</span>
               </li>
               <li className="flex items-start">
-                <MapPin className="w-5 h-5 mr-3 text-tintto-accent flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 mr-3 text-tintto-accent flex-shrink-0 mt-0.5" />
                 <span className="text-white/60">
                   Berlin, Germany
                 </span>
