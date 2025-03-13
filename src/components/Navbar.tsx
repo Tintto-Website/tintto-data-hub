@@ -2,21 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
-import { Menu, X, ChevronDown } from "lucide-react";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,6 +24,17 @@ const Navbar = () => {
     setIsMenuOpen(false);
   }, [location]);
 
+  const navItems = [
+    { path: "/", label: "Home" },
+    { path: "/services", label: "Services" },
+    { path: "/use-cases", label: "Use Cases" },
+    { path: "/about", label: "About Us" },
+    { path: "/team", label: "Team" },
+    { path: "/careers", label: "Careers" },
+    { path: "/insights", label: "Insights" },
+    { path: "/contact", label: "Contact" },
+  ];
+
   return (
     <nav
       className={cn(
@@ -55,113 +52,23 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-2">
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <Link to="/" className={cn(
-                  "nav-item",
-                  location.pathname === "/" && "active"
-                )}>
-                  Home
-                </Link>
-              </NavigationMenuItem>
-
-              {/* Solutions Dropdown */}
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="nav-item">
-                  Solutions
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-tintto-gray border border-white/10 p-2 rounded-md shadow-lg">
-                  <ul className="grid gap-1 p-1 w-40">
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link 
-                          to="/services" 
-                          className="block px-4 py-2 text-sm text-white hover:bg-tintto-blue/20 rounded-md"
-                        >
-                          Services
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link 
-                          to="/use-cases" 
-                          className="block px-4 py-2 text-sm text-white hover:bg-tintto-blue/20 rounded-md"
-                        >
-                          Use Cases
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              {/* Company Dropdown */}
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="nav-item">
-                  Company
-                </NavigationMenuTrigger>
-                <NavigationMenuContent className="bg-tintto-gray border border-white/10 p-2 rounded-md shadow-lg">
-                  <ul className="grid gap-1 p-1 w-40">
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link 
-                          to="/about" 
-                          className="block px-4 py-2 text-sm text-white hover:bg-tintto-blue/20 rounded-md"
-                        >
-                          About Us
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link 
-                          to="/team" 
-                          className="block px-4 py-2 text-sm text-white hover:bg-tintto-blue/20 rounded-md"
-                        >
-                          Team
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    <li>
-                      <NavigationMenuLink asChild>
-                        <Link 
-                          to="/careers" 
-                          className="block px-4 py-2 text-sm text-white hover:bg-tintto-blue/20 rounded-md"
-                        >
-                          Careers
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <Link to="/insights" className={cn(
-                  "nav-item",
-                  location.pathname === "/insights" && "active"
-                )}>
-                  Insights
-                </Link>
-              </NavigationMenuItem>
-
-              <NavigationMenuItem>
-                <Link to="/contact" className={cn(
-                  "nav-item",
-                  location.pathname === "/contact" && "active"
-                )}>
-                  Contact
-                </Link>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+        <div className="hidden md:flex items-center space-x-1">
+          {navItems.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={cn(
+                "nav-item",
+                location.pathname === item.path && "active"
+              )}
+            >
+              {item.label}
+            </Link>
+          ))}
           
           <Link
             to="/contact"
-            className="btn-primary text-sm py-2 px-4"
+            className="btn-primary text-sm py-2 px-4 ml-2"
           >
             <span>Get Started</span>
           </Link>
@@ -188,125 +95,33 @@ const Navbar = () => {
           )}
         >
           <div className="flex flex-col space-y-6 items-center">
-            <Link
-              to="/"
-              className={cn(
-                "text-xl font-medium transition-all duration-300",
-                location.pathname === "/"
-                  ? "text-white"
-                  : "text-white/70 hover:text-white",
-                isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
-                "transition-all duration-300 delay-[0ms]"
-              )}
-              style={{
-                transitionDelay: isMenuOpen ? "0ms" : "0ms",
-              }}
-            >
-              Home
-            </Link>
-            
-            {/* Mobile Solutions Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger className={cn(
-                "text-xl font-medium transition-all duration-300",
-                "text-white/70 hover:text-white",
-                isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
-                "transition-all duration-300 delay-[50ms]"
-              )} 
-              style={{
-                transitionDelay: isMenuOpen ? "50ms" : "0ms",
-              }}>
-                Solutions <ChevronDown className="inline-block h-4 w-4 ml-1" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-tintto-gray border border-white/10 p-2 rounded-md">
-                <DropdownMenuItem asChild>
-                  <Link to="/services" className="text-white hover:bg-tintto-blue/20">
-                    Services
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/use-cases" className="text-white hover:bg-tintto-blue/20">
-                    Use Cases
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            
-            {/* Mobile Company Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger className={cn(
-                "text-xl font-medium transition-all duration-300",
-                "text-white/70 hover:text-white",
-                isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
-                "transition-all duration-300 delay-[100ms]"
-              )} 
-              style={{
-                transitionDelay: isMenuOpen ? "100ms" : "0ms",
-              }}>
-                Company <ChevronDown className="inline-block h-4 w-4 ml-1" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-tintto-gray border border-white/10 p-2 rounded-md">
-                <DropdownMenuItem asChild>
-                  <Link to="/about" className="text-white hover:bg-tintto-blue/20">
-                    About Us
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/team" className="text-white hover:bg-tintto-blue/20">
-                    Team
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/careers" className="text-white hover:bg-tintto-blue/20">
-                    Careers
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-
-            <Link
-              to="/insights"
-              className={cn(
-                "text-xl font-medium transition-all duration-300",
-                location.pathname === "/insights"
-                  ? "text-white"
-                  : "text-white/70 hover:text-white",
-                isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
-                "transition-all duration-300 delay-[150ms]"
-              )}
-              style={{
-                transitionDelay: isMenuOpen ? "150ms" : "0ms",
-              }}
-            >
-              Insights
-            </Link>
-            
-            <Link
-              to="/contact"
-              className={cn(
-                "text-xl font-medium transition-all duration-300",
-                location.pathname === "/contact"
-                  ? "text-white"
-                  : "text-white/70 hover:text-white",
-                isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
-                "transition-all duration-300 delay-[200ms]"
-              )}
-              style={{
-                transitionDelay: isMenuOpen ? "200ms" : "0ms",
-              }}
-            >
-              Contact
-            </Link>
+            {navItems.map((item, index) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={cn(
+                  "text-xl font-medium transition-all duration-300",
+                  location.pathname === item.path
+                    ? "text-white"
+                    : "text-white/70 hover:text-white",
+                  isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+                )}
+                style={{
+                  transitionDelay: isMenuOpen ? `${index * 50}ms` : "0ms",
+                }}
+              >
+                {item.label}
+              </Link>
+            ))}
             
             <Link
               to="/contact"
               className={cn(
                 "btn-primary text-sm",
-                isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0",
-                "transition-all duration-300 delay-[250ms]"
+                isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
               )}
               style={{
-                transitionDelay: isMenuOpen ? "250ms" : "0ms",
+                transitionDelay: isMenuOpen ? `${navItems.length * 50}ms` : "0ms",
               }}
             >
               <span>Get Started</span>
