@@ -23,11 +23,13 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
+          if (entry.isIntersecting && sectionRef.current) {
             setTimeout(() => {
-              entry.target.classList.add("animate-reveal");
-              entry.target.classList.add("opacity-100");
-              entry.target.style.transform = "translate(0, 0)";
+              if (sectionRef.current) {
+                sectionRef.current.classList.add("animate-reveal");
+                sectionRef.current.classList.add("opacity-100");
+                sectionRef.current.style.transform = "translate(0, 0)";
+              }
             }, delay);
           }
         });
