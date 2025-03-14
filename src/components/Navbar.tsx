@@ -47,7 +47,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link to="/" className="flex items-center z-20">
           <div className="text-white font-bold text-lg flex items-start">
-            Tintto<span className="text-xs text-tintto-accent align-top mt-1">DataLabs</span>
+            tintto<span className="text-xs text-tintto-accent align-top mt-1">^DataLabs</span>
           </div>
         </Link>
 
@@ -66,12 +66,12 @@ const Navbar = () => {
             </Link>
           ))}
           
-          <Link
-            to="/contact"
+          <a
+            href="https://zcal.co/jpc/25min"
             className="btn-primary text-sm py-2 px-4 ml-2"
           >
             <span>Get Started</span>
-          </Link>
+          </a>
         </div>
 
         {/* Mobile Navigation Toggle */}
@@ -114,8 +114,8 @@ const Navbar = () => {
               </Link>
             ))}
             
-            <Link
-              to="/contact"
+            <a
+              href="https://zcal.co/jpc/25min"
               className={cn(
                 "btn-primary text-sm",
                 isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
@@ -125,7 +125,7 @@ const Navbar = () => {
               }}
             >
               <span>Get Started</span>
-            </Link>
+            </a>
           </div>
         </div>
       </div>

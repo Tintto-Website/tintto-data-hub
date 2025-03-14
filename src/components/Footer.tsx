@@ -1,11 +1,9 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { Twitter, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { Linkedin, Mail, Phone, MapPin } from "lucide-react";
 
 const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
-
   return (
     <footer className="bg-tintto-dark border-t border-white/10 pt-16 pb-8">
       <div className="container max-w-7xl mx-auto px-6">
@@ -13,7 +11,7 @@ const Footer: React.FC = () => {
           <div className="col-span-1">
             <Link to="/" className="inline-block mb-6">
               <span className="text-white font-bold text-lg">
-                Tintto<span className="text-tintto-accent">Data</span>Labs
+                tintto<span className="text-tintto-accent">^DataLabs</span>
               </span>
             </Link>
             <p className="text-white/60 mb-6">
@@ -21,14 +19,7 @@ const Footer: React.FC = () => {
             </p>
             <div className="flex space-x-4">
               <a
-                href="#"
-                className="w-8 h-8 rounded-full bg-tintto-gray border border-white/10 flex items-center justify-center transition-all hover:bg-tintto-gray-light"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-4 h-4 text-white/80" />
-              </a>
-              <a
-                href="#"
+                href="https://www.linkedin.com/company/tintto-ai"
                 className="w-8 h-8 rounded-full bg-tintto-gray border border-white/10 flex items-center justify-center transition-all hover:bg-tintto-gray-light"
                 aria-label="LinkedIn"
               >
@@ -104,11 +95,13 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <Mail className="w-4 h-4 mr-3 text-tintto-accent flex-shrink-0 mt-0.5" />
-                <span className="text-white/60">hello@tinttodatalabs.com</span>
+                <span className="text-white/60">contact@tinto.com</span>
               </li>
               <li className="flex items-start">
                 <Phone className="w-4 h-4 mr-3 text-tintto-accent flex-shrink-0 mt-0.5" />
-                <span className="text-white/60">+1 (555) 789-1234</span>
+                <a href="https://zcal.co/jpc/25min" className="text-white/60 hover:text-white transition-colors">
+                  Book Call
+                </a>
               </li>
               <li className="flex items-start">
                 <MapPin className="w-4 h-4 mr-3 text-tintto-accent flex-shrink-0 mt-0.5" />
@@ -122,7 +115,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-white/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/40 text-sm">
-            © {currentYear} Tintto Data Labs | All Rights Reserved
+            © 2025 Tintto | All Rights Reserved
           </p>
           <div className="mt-4 md:mt-0">
             <ul className="flex space-x-6">

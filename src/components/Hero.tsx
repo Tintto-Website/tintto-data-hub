@@ -95,12 +95,12 @@ const Hero: React.FC = () => {
             
             <AnimatedSection direction="up" delay={400}>
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-                <Link to="/services" className="btn-primary w-full sm:w-auto">
+                <a href="https://zcal.co/jpc/25min" className="btn-primary w-full sm:w-auto">
                   <span>Discover Our Solutions</span>
-                </Link>
-                <Link to="/contact" className="btn-secondary w-full sm:w-auto">
+                </a>
+                <a href="https://zcal.co/jpc/25min" className="btn-secondary w-full sm:w-auto">
                   Get in Touch
-                </Link>
+                </a>
               </div>
             </AnimatedSection>
           </div>
@@ -157,15 +157,6 @@ const Hero: React.FC = () => {
               <h3 className="text-xl font-semibold mb-2">Trusted Innovation</h3>
               <p className="text-white/70">Rely on ethical, compliant solutions for long-term success.</p>
             </div>
-          </div>
-        </AnimatedSection>
-        
-        <AnimatedSection className="mt-16 text-center relative z-20" delay={600}>
-          <div className="max-w-3xl mx-auto bg-tintto-dark/80 backdrop-blur-sm rounded-lg p-6">
-            <p className="text-white/80 text-lg">
-              Welcome to Tintto Data Labs, where we transform businesses through the power of AI and data. 
-              We design and deliver tailored solutions that enhance productivity, optimize operations, and ensure sustainable growth.
-            </p>
           </div>
         </AnimatedSection>
       </div>
