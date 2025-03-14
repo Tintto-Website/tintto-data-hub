@@ -1,15 +1,48 @@
 
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
 import { Link } from "react-router-dom";
-import { ArrowRight, BrainCircuit, BarChart3, LightbulbIcon, ShieldCheck } from "lucide-react";
+import { ArrowRight, BrainCircuit, BarChart3 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import ServiceCard from "@/components/ServiceCard";
 import UseCaseCard from "@/components/UseCaseCard";
 
 const Index = () => {
+  const [activeFilter, setActiveFilter] = useState("All");
+  
+  const useCases = [
+    {
+      title: "AI-Powered Diagnostics",
+      description: "Analyze medical images and patient data for faster, more accurate diagnoses.",
+      tags: ["Healthcare", "AI Automation"],
+      delay: 100,
+    },
+    {
+      title: "Automated Financial Forecasting",
+      description: "Use advanced AI algorithms to predict cash flow, revenue, and expenses with high accuracy.",
+      tags: ["Finance", "AI Automation"],
+      delay: 200,
+    },
+    {
+      title: "Predictive Marketing Campaigns",
+      description: "Leverage machine learning for data-driven, predictive marketing that enhances brand positioning.",
+      tags: ["Marketing", "Machine Learning"],
+      delay: 300,
+    },
+  ];
+  
+  const filters = ["All", "Healthcare", "Finance", "Marketing", "AI Automation", "Machine Learning"];
+  
+  const filteredUseCases = activeFilter === "All"
+    ? useCases
+    : useCases.filter(useCase => useCase.tags.includes(activeFilter));
+  
+  const handleFilterClick = (filter: string) => {
+    setActiveFilter(filter);
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -82,35 +115,39 @@ const Index = () => {
           </AnimatedSection>
 
           <div className="flex flex-wrap justify-center gap-3 mt-8">
-            <span className="bubble-filter active">All</span>
-            <span className="bubble-filter">Healthcare</span>
-            <span className="bubble-filter">Finance</span>
-            <span className="bubble-filter">Marketing</span>
-            <span className="bubble-filter">AI Automation</span>
-            <span className="bubble-filter">Machine Learning</span>
+            {filters.map(filter => (
+              <button
+                key={filter}
+                className={`bubble-filter ${activeFilter === filter ? 'active' : ''}`}
+                onClick={() => handleFilterClick(filter)}
+              >
+                {filter}
+              </button>
+            ))}
           </div>
 
           <div className="use-case-grid">
-            <UseCaseCard
-              title="AI-Powered Diagnostics"
-              description="Analyze medical images and patient data for faster, more accurate diagnoses."
-              tags={["Healthcare", "AI Automation"]}
-              delay={100}
-            />
-
-            <UseCaseCard
-              title="Automated Financial Forecasting"
-              description="Use advanced AI algorithms to predict cash flow, revenue, and expenses with high accuracy."
-              tags={["Finance", "AI Automation"]}
-              delay={200}
-            />
-
-            <UseCaseCard
-              title="Predictive Marketing Campaigns"
-              description="Leverage machine learning for data-driven, predictive marketing that enhances brand positioning."
-              tags={["Marketing", "Machine Learning"]}
-              delay={300}
-            />
+            {filteredUseCases.length > 0 ? (
+              filteredUseCases.map((useCase, index) => (
+                <UseCaseCard
+                  key={index}
+                  title={useCase.title}
+                  description={useCase.description}
+                  tags={useCase.tags}
+                  delay={useCase.delay}
+                />
+              ))
+            ) : (
+              <div className="col-span-3 text-center py-12">
+                <h3 className="text-xl text-white mb-4">No use cases found for this filter</h3>
+                <button 
+                  className="btn-secondary"
+                  onClick={() => handleFilterClick("All")}
+                >
+                  Show All Use Cases
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="text-center mt-12">

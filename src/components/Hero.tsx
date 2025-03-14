@@ -160,9 +160,9 @@ const Hero: React.FC = () => {
           </div>
         </AnimatedSection>
         
-        <AnimatedSection className="mt-16 text-center" delay={600}>
-          <div className="max-w-3xl mx-auto">
-            <p className="text-white/60 text-lg">
+        <AnimatedSection className="mt-16 text-center relative z-20" delay={600}>
+          <div className="max-w-3xl mx-auto bg-tintto-dark/80 backdrop-blur-sm rounded-lg p-6">
+            <p className="text-white/80 text-lg">
               Welcome to Tintto Data Labs, where we transform businesses through the power of AI and data. 
               We design and deliver tailored solutions that enhance productivity, optimize operations, and ensure sustainable growth.
             </p>

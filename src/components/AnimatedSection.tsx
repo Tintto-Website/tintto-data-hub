@@ -27,12 +27,12 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
             setTimeout(() => {
               entry.target.classList.add("animate-reveal");
               entry.target.classList.add("opacity-100");
-              observer.unobserve(entry.target);
+              entry.target.style.transform = "translate(0, 0)";
             }, delay);
           }
         });
       },
-      { threshold }
+      { threshold, rootMargin: "20px" }
     );
 
     if (sectionRef.current) {
@@ -46,11 +46,13 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
     };
   }, [delay, threshold]);
 
-  const directionClass = {
-    up: "translate-y-8",
-    right: "translate-x-8",
-    left: "-translate-x-8",
-    none: "",
+  const getInitialTransform = () => {
+    switch (direction) {
+      case "up": return "translate(0, 20px)";
+      case "right": return "translate(-20px, 0)";
+      case "left": return "translate(20px, 0)";
+      default: return "translate(0, 0)";
+    }
   };
 
   return (
@@ -58,10 +60,13 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
       ref={sectionRef}
       className={cn(
         "opacity-0",
-        directionClass[direction],
-        "transition-all duration-700 ease-out",
+        "transition-all duration-700 ease-out will-change-transform",
         className
       )}
+      style={{
+        transform: getInitialTransform(),
+        transitionDelay: `${delay}ms`,
+      }}
     >
       {children}
     </div>

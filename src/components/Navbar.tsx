@@ -46,9 +46,9 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link to="/" className="flex items-center z-20">
-          <span className="text-white font-bold text-lg">
-            Tintto<span className="text-tintto-accent">Data</span>Labs
-          </span>
+          <div className="text-white font-bold text-lg flex items-start">
+            Tintto<span className="text-xs text-tintto-accent align-top mt-1">DataLabs</span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}
@@ -58,8 +58,8 @@ const Navbar = () => {
               key={item.path}
               to={item.path}
               className={cn(
-                "nav-item",
-                location.pathname === item.path && "active"
+                "nav-item px-3 py-2 rounded-md transition-colors",
+                location.pathname === item.path ? "text-white" : "text-white/70 hover:text-white"
               )}
             >
               {item.label}
