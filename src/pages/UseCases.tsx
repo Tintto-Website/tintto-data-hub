@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -21,6 +20,16 @@ const UseCases = () => {
       setActiveFilter("All");
     }
   }, [filterParam]);
+  
+  const handleFilterClick = (category: string) => {
+    setActiveFilter(category);
+    
+    if (category === "All") {
+      navigate('/use-cases');
+    } else {
+      navigate(`/use-cases?filter=${encodeURIComponent(category)}`);
+    }
+  };
   
   const categories = [
     "All",
@@ -53,7 +62,6 @@ const UseCases = () => {
   ];
   
   const useCases = [
-    // Original use cases
     {
       title: "AI-Powered Diagnostics",
       description: "Analyze medical images and patient data for faster, more accurate diagnoses.",
@@ -91,7 +99,6 @@ const UseCases = () => {
       delay: 350,
     },
     
-    // LLMs
     {
       title: "Content Generation for Marketing",
       description: "Generate blog posts, product descriptions, and ad copy tailored to audience preferences.",
@@ -123,7 +130,6 @@ const UseCases = () => {
       delay: 300,
     },
     
-    // Strategic Planning
     {
       title: "Scenario Analysis",
       description: "Model multiple business scenarios to evaluate potential outcomes and identify effective strategies.",
@@ -155,7 +161,6 @@ const UseCases = () => {
       delay: 300,
     },
     
-    // Finance
     {
       title: "Financial Forecasting",
       description: "Use historical data and market trends to predict cash flow, revenue, and expense trajectories.",
@@ -187,7 +192,6 @@ const UseCases = () => {
       delay: 300,
     },
     
-    // Performance Metrics
     {
       title: "Custom KPI Dashboards",
       description: "Build tailored dashboards that consolidate performance metrics from various departments.",
@@ -219,7 +223,6 @@ const UseCases = () => {
       delay: 300,
     },
     
-    // AI and Automation
     {
       title: "End-to-End Process Automation",
       description: "Automate workflows from data input to final reporting, reducing human error and speeding up execution.",
@@ -251,7 +254,6 @@ const UseCases = () => {
       delay: 300,
     },
     
-    // Healthcare
     {
       title: "Patient Care Recommendations",
       description: "Provide personalized care plans based on a patient's medical history and current condition.",
@@ -277,7 +279,6 @@ const UseCases = () => {
       delay: 250,
     },
     
-    // Machine Learning
     {
       title: "Real-Time Model Tuning",
       description: "Continuously adjust ML models based on incoming data to improve predictive accuracy.",
@@ -309,7 +310,6 @@ const UseCases = () => {
       delay: 300,
     },
     
-    // Data Enrichment
     {
       title: "Enhanced Customer Profiles",
       description: "Augment CRM data with third-party insights like social media activity and purchasing habits.",
@@ -341,7 +341,6 @@ const UseCases = () => {
       delay: 300,
     },
     
-    // Marketing
     {
       title: "AI-Driven Campaign Optimization",
       description: "Continuously monitor and adjust marketing campaigns for better targeting and ROI.",
@@ -373,7 +372,6 @@ const UseCases = () => {
       delay: 300,
     },
     
-    // Cloud Solutions
     {
       title: "Dynamic Resource Allocation",
       description: "Automatically scale cloud resources based on real-time workload demands.",
@@ -405,7 +403,6 @@ const UseCases = () => {
       delay: 300,
     },
     
-    // Supply Chain
     {
       title: "Real-Time Inventory Tracking",
       description: "Monitor stock levels and provide alerts when replenishment is needed.",
@@ -431,13 +428,6 @@ const UseCases = () => {
       delay: 250,
     },
     
-    // Additional categories and use cases
-    // Task Automation, Business Intelligence, Recruitment, etc.
-    // Customer Support, Sales Enablement, Customer Experience, etc.
-    // Manufacturing, Cybersecurity, Product Development, etc.
-    // Retail & E-commerce, Legal, Education & Training, etc.
-    
-    // Task Automation
     {
       title: "Email Response Automation",
       description: "Generate and send personalized responses to routine inquiries based on content analysis.",
@@ -469,7 +459,6 @@ const UseCases = () => {
       delay: 300,
     },
     
-    // Business Intelligence
     {
       title: "Trend Identification",
       description: "Identify emerging trends within large datasets, helping businesses adapt quickly to market shifts.",
@@ -500,9 +489,6 @@ const UseCases = () => {
       tags: ["Business Intelligence", "LLMs"],
       delay: 300,
     },
-    
-    // More categories like Recruitment, Brand Positioning, Revenue Optimization, etc.
-    // with their respective use cases would be added here
   ];
   
   const filteredUseCases = activeFilter === "All"
