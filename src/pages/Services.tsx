@@ -20,8 +20,10 @@ const Services = () => {
             </span>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">End-to-End AI & Data Solutions</h1>
             <p className="text-white/70 max-w-3xl mx-auto text-lg">
-              At Tintto Data Labs, we accelerate your business growth by merging two powerful streams of innovation. 
-              Our dual approach empowers you to make informed decisions and operate more efficiently.
+              At Tintto Data Labs, we accelerate your business growth by merging two powerful streams of innovation: AI Agents and Foundational Models Data Cockpits. 
+            </p>
+            <p className="text-white/70 max-w-3xl mx-auto text-lg mt-4">
+              Our intelligent AI agents automate tasks, streamline operations, and integrate seamlessly with your systems, while our foundational models data cockpits consolidate your data and transform it into actionable insights using advanced models and intuitive dashboards. This dual approach empowers you to make informed decisions and operate more efficiently.
             </p>
           </AnimatedSection>
         </div>
@@ -33,8 +35,7 @@ const Services = () => {
           <AnimatedSection>
             <div className="glass-card p-8 md:p-12">
               <p className="text-lg text-white/80 leading-relaxed">
-                At Tintto Data Labs, we accelerate your business growth by merging two powerful streams of innovation. On one side, 
-                we deploy intelligent AI agents that automate tasks, streamline operations, and integrate with your tools to drive immediate impact. 
+                At Tintto Data Labs, we deploy intelligent AI agents that automate tasks, streamline operations, and integrate with your tools to drive immediate impact. 
                 On the other side, we build comprehensive data cockpits that consolidate your data infrastructure, apply advanced statistical and 
                 mathematical models, and transform raw data into actionable insights—all delivered through intuitive dashboards. 
                 This dual approach empowers you to make informed decisions and operate more efficiently.
@@ -64,9 +65,9 @@ const Services = () => {
               delay={100}
             />
 
-            {/* Data Cockpits & Foundational Models */}
+            {/* Foundational Models Data Cockpits */}
             <ServicePillar
-              title="Data Cockpits & Foundational Models"
+              title="Foundational Models Data Cockpits"
               description="Our data cockpits are the analytical powerhouse behind your organization. By leveraging robust data engineering and a suite of statistical, econometric, and simulation models, we create a unified platform where every key performance indicator is visible and actionable."
               useCases={[
                 "Data Integration & Transformation: Aggregate data from multiple sources into a unified format",
