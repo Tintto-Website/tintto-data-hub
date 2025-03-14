@@ -29,8 +29,6 @@ const Navbar = () => {
     { path: "/services", label: "Services" },
     { path: "/use-cases", label: "Use Cases" },
     { path: "/about", label: "About Us" },
-    { path: "/team", label: "Team" },
-    { path: "/careers", label: "Careers" },
     { path: "/insights", label: "Insights" },
     { path: "/contact", label: "Contact" },
   ];
@@ -47,7 +45,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link to="/" className="flex items-center z-20">
           <div className="text-white font-bold text-lg flex items-start">
-            tintto<span className="text-xs text-tintto-accent align-top mt-1">^DataLabs</span>
+            tintto<span className="text-xs text-tintto-accent align-top mt-1">DataLabs</span>
           </div>
         </Link>
 

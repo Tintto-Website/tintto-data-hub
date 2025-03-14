@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           <div className="col-span-1">
             <Link to="/" className="inline-block mb-6">
               <span className="text-white font-bold text-lg">
-                tintto<span className="text-tintto-accent">^DataLabs</span>
+                tintto<span className="text-tintto-accent">DataLabs</span>
               </span>
             </Link>
             <p className="text-white/60 mb-6">
@@ -52,8 +52,8 @@ const Footer: React.FC = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/team" className="text-white/60 hover:text-white transition-colors">
-                  Team
+                <Link to="/careers" className="text-white/60 hover:text-white transition-colors">
+                  Careers
                 </Link>
               </li>
             </ul>
@@ -62,11 +62,6 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-white font-semibold text-lg mb-6">Resources</h3>
             <ul className="space-y-3">
-              <li>
-                <Link to="/careers" className="text-white/60 hover:text-white transition-colors">
-                  Careers
-                </Link>
-              </li>
               <li>
                 <Link to="/insights" className="text-white/60 hover:text-white transition-colors">
                   Insights
@@ -95,7 +90,7 @@ const Footer: React.FC = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <Mail className="w-4 h-4 mr-3 text-tintto-accent flex-shrink-0 mt-0.5" />
-                <span className="text-white/60">contact@tinto.com</span>
+                <span className="text-white/60">contact@tintto.com</span>
               </li>
               <li className="flex items-start">
                 <Phone className="w-4 h-4 mr-3 text-tintto-accent flex-shrink-0 mt-0.5" />
