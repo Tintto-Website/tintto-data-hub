@@ -29,25 +29,14 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Introduction */}
-      <section className="py-16 px-6 bg-tintto-blue-dark/10">
-        <div className="container max-w-7xl mx-auto">
-          <AnimatedSection>
-            <div className="glass-card p-8 md:p-12">
-              <p className="text-lg text-white/80 leading-relaxed">
-                At Tintto Data Labs, we deploy intelligent AI agents that automate tasks, streamline operations, and integrate with your tools to drive immediate impact. 
-                On the other side, we build comprehensive data cockpits that consolidate your data infrastructure, apply advanced statistical and 
-                mathematical models, and transform raw data into actionable insights—all delivered through intuitive dashboards. 
-                This dual approach empowers you to make informed decisions and operate more efficiently.
-              </p>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
       {/* Service Pillars */}
       <section className="py-24 px-6">
         <div className="container max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <AnimatedSection>
+              <h3 className="text-3xl font-bold text-white">Our Service Pillars</h3>
+            </AnimatedSection>
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* AI Agents & Automation */}
             <ServicePillar
