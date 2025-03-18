@@ -1,77 +1,57 @@
-
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import AnimatedSection from "./AnimatedSection";
-
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
       if (!heroRef.current) return;
-      
-      const { clientX, clientY } = e;
-      const { left, top, width, height } = heroRef.current.getBoundingClientRect();
-      
+      const {
+        clientX,
+        clientY
+      } = e;
+      const {
+        left,
+        top,
+        width,
+        height
+      } = heroRef.current.getBoundingClientRect();
       const xPos = (clientX - left) / width - 0.5;
       const yPos = (clientY - top) / height - 0.5;
-      
       const elements = heroRef.current.querySelectorAll(".parallax-element");
-      
-      elements.forEach((el) => {
+      elements.forEach(el => {
         const element = el as HTMLElement;
         const speed = parseFloat(element.getAttribute("data-speed") || "0.05");
         const xMove = xPos * speed * 40;
         const yMove = yPos * speed * 40;
-        
         element.style.transform = `translate3d(${xMove}px, ${yMove}px, 0)`;
       });
     };
-    
     document.addEventListener("mousemove", handleMouseMove);
-    
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
-
-  return (
-    <section 
-      ref={heroRef}
-      className="relative min-h-screen flex flex-col justify-center items-center px-6 overflow-hidden bg-white"
-    >
+  return <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center items-center px-6 overflow-hidden bg-white">
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div 
-          className="absolute top-20 left-[10%] w-72 h-72 rounded-full bg-tintto-blue/5 blur-3xl parallax-element"
-          data-speed="0.05"
-        ></div>
-        <div 
-          className="absolute bottom-20 right-[10%] w-80 h-80 rounded-full bg-tintto-accent/5 blur-3xl parallax-element"
-          data-speed="0.08"
-        ></div>
-        <div 
-          className="absolute top-1/3 right-1/4 w-4 h-4 rounded-full bg-tintto-accent animate-float parallax-element"
-          data-speed="0.12"
-        ></div>
-        <div 
-          className="absolute top-2/3 left-1/4 w-6 h-6 rounded-full bg-tintto-blue animate-float parallax-element"
-          style={{ animationDelay: "1s" }}
-          data-speed="0.1"
-        ></div>
-        <div 
-          className="absolute top-1/4 left-1/3 w-3 h-3 rounded-full bg-gray-300 animate-float parallax-element"
-          style={{ animationDelay: "1.5s" }}
-          data-speed="0.15"
-        ></div>
+        <div className="absolute top-20 left-[10%] w-72 h-72 rounded-full bg-tintto-blue/5 blur-3xl parallax-element" data-speed="0.05"></div>
+        <div className="absolute bottom-20 right-[10%] w-80 h-80 rounded-full bg-tintto-accent/5 blur-3xl parallax-element" data-speed="0.08"></div>
+        <div className="absolute top-1/3 right-1/4 w-4 h-4 rounded-full bg-tintto-accent animate-float parallax-element" data-speed="0.12"></div>
+        <div className="absolute top-2/3 left-1/4 w-6 h-6 rounded-full bg-tintto-blue animate-float parallax-element" style={{
+        animationDelay: "1s"
+      }} data-speed="0.1"></div>
+        <div className="absolute top-1/4 left-1/3 w-3 h-3 rounded-full bg-gray-300 animate-float parallax-element" style={{
+        animationDelay: "1.5s"
+      }} data-speed="0.15"></div>
       </div>
 
       <div className="container max-w-7xl mx-auto z-10 pt-24">
         <div className="flex flex-col lg:flex-row items-center justify-between">
           <div className="w-full lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
             <AnimatedSection direction="up" delay={100}>
-              <span className="inline-block px-4 py-2 rounded-full bg-tintto-blue/10 border border-tintto-blue/20 text-tintto-accent text-sm font-medium mb-6">
+              <span className="inline-block px-4 py-2 rounded-full bg-tintto-blue/10 border border-tintto-blue/20 text-sm font-medium mb-6 text-zinc-700">
                 AI & Data Solutions
               </span>
             </AnimatedSection>
@@ -165,8 +145,6 @@ const Hero: React.FC = () => {
           <div className="w-1 h-3 bg-gray-400 rounded-full"></div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
