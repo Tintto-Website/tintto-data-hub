@@ -1,21 +1,18 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { BrainCircuit, LineChart, Database, BarChart3 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import ServicePillar from "@/components/ServicePillar";
-
 const Services = () => {
-  return (
-    <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col">
       <Navbar />
       
       {/* Header */}
       <section className="pt-32 pb-20 px-6 bg-gradient-to-b from-tintto-blue-dark/30 to-tintto-dark">
         <div className="container max-w-7xl mx-auto text-center">
           <AnimatedSection>
-            <span className="inline-block px-4 py-2 rounded-full bg-tintto-blue/10 border border-tintto-blue/20 text-tintto-accent text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-2 rounded-full bg-tintto-blue/10 border border-tintto-blue/20 text-sm font-medium mb-4 text-zinc-800">
               Our Services
             </span>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">End-to-End AI & Data Solutions</h1>
@@ -39,36 +36,10 @@ const Services = () => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             {/* AI Agents & Automation */}
-            <ServicePillar
-              title="AI Agents & Automation"
-              description="Our AI agents are designed to handle repetitive tasks and solve complex challenges, freeing up your team's time to focus on strategic initiatives. These agents are adaptive, scalable, and integrate seamlessly with your existing systems."
-              useCases={[
-                "Workflow Automation: Automate repetitive processes such as data entry, scheduling, and ticket routing",
-                "Customer Service Bots: Provide real-time, intelligent support that learns from interactions",
-                "Sales & Marketing Automation: Generate leads, qualify prospects, and personalize outreach",
-                "Operational Optimization: Monitor processes in real time and adjust operations dynamically",
-                "Integration with Enterprise Tools: Seamlessly connect with CRMs, ERPs, and other systems",
-                "Real-Time Decision Support: Deliver actionable insights where decisions are made"
-              ]}
-              icon={<BrainCircuit className="w-8 h-8" />}
-              delay={100}
-            />
+            <ServicePillar title="AI Agents & Automation" description="Our AI agents are designed to handle repetitive tasks and solve complex challenges, freeing up your team's time to focus on strategic initiatives. These agents are adaptive, scalable, and integrate seamlessly with your existing systems." useCases={["Workflow Automation: Automate repetitive processes such as data entry, scheduling, and ticket routing", "Customer Service Bots: Provide real-time, intelligent support that learns from interactions", "Sales & Marketing Automation: Generate leads, qualify prospects, and personalize outreach", "Operational Optimization: Monitor processes in real time and adjust operations dynamically", "Integration with Enterprise Tools: Seamlessly connect with CRMs, ERPs, and other systems", "Real-Time Decision Support: Deliver actionable insights where decisions are made"]} icon={<BrainCircuit className="w-8 h-8" />} delay={100} />
 
             {/* Foundational Models Data Cockpits */}
-            <ServicePillar
-              title="Foundational Models Data Cockpits"
-              description="Our data cockpits are the analytical powerhouse behind your organization. By leveraging robust data engineering and a suite of statistical, econometric, and simulation models, we create a unified platform where every key performance indicator is visible and actionable."
-              useCases={[
-                "Data Integration & Transformation: Aggregate data from multiple sources into a unified format",
-                "Advanced Statistical Analysis: Apply regression, time series models, and panel data analysis",
-                "Forecasting & Predictive Analytics: Use econometric and Bayesian models to forecast trends",
-                "Causal Inference & Structural Modeling: Leverage SEM and VAR models for causal relationships",
-                "Optimization & Simulation: Utilize Monte Carlo simulations and optimization techniques",
-                "Real-Time Dashboarding: Present data via interactive dashboards with drill-down capabilities"
-              ]}
-              icon={<Database className="w-8 h-8" />}
-              delay={200}
-            />
+            <ServicePillar title="Foundational Models Data Cockpits" description="Our data cockpits are the analytical powerhouse behind your organization. By leveraging robust data engineering and a suite of statistical, econometric, and simulation models, we create a unified platform where every key performance indicator is visible and actionable." useCases={["Data Integration & Transformation: Aggregate data from multiple sources into a unified format", "Advanced Statistical Analysis: Apply regression, time series models, and panel data analysis", "Forecasting & Predictive Analytics: Use econometric and Bayesian models to forecast trends", "Causal Inference & Structural Modeling: Leverage SEM and VAR models for causal relationships", "Optimization & Simulation: Utilize Monte Carlo simulations and optimization techniques", "Real-Time Dashboarding: Present data via interactive dashboards with drill-down capabilities"]} icon={<Database className="w-8 h-8" />} delay={200} />
           </div>
         </div>
       </section>
@@ -90,8 +61,6 @@ const Services = () => {
       </section>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Services;
