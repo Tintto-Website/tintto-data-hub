@@ -393,7 +393,7 @@ const UseCases = () => {
       </section>
 
       {/* Filters */}
-      <section className="py-12 px-6 bg-neutral-100">
+      <section className="py-12 px-6 bg-tintto-gray">
         <div className="container max-w-7xl mx-auto">
           <AnimatedSection>
             <div className="flex flex-wrap justify-center gap-3 mb-12">
