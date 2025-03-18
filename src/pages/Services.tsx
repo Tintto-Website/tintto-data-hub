@@ -45,7 +45,7 @@ const Services = () => {
       </section>
       
       {/* Call to Action */}
-      <section className="py-16 px-6 bg-tintto-blue-dark/20">
+      <section className="py-16 px-6 bg-tintto-blue-dark/20 bg-zinc-100">
         <div className="container max-w-7xl mx-auto text-center">
           <AnimatedSection>
             <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Business?</h2>
