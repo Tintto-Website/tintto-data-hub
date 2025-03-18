@@ -104,7 +104,7 @@ const Contact = () => {
                     <Mail className="w-6 h-6 mr-4 text-tintto-accent flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="text-lg font-medium mb-2 text-gray-800">Email</h3>
-                      <p className="text-gray-600">contact@tinto.com</p>
+                      <p className="text-gray-600">contact@tintto.com</p>
                     </div>
                   </div>
                   
