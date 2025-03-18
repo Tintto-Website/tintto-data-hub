@@ -67,9 +67,7 @@ const Hero: React.FC = () => {
             </AnimatedSection>
             
             <AnimatedSection direction="up" delay={300}>
-              <p className="text-gray-600 mb-8 max-w-xl lg:max-w-none">
-                Unlock efficiency, cut costs, and drive smarter decisions with our custom AI and data expertise.
-              </p>
+              <p className="text-gray-600 mb-8 max-w-xl lg:max-w-none text-xl">We design and deploy AI powered solutions and empower your team to visualise them and operate them seamlessly.</p>
             </AnimatedSection>
             
             <AnimatedSection direction="up" delay={400}>
