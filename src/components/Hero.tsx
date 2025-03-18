@@ -87,7 +87,7 @@ const Hero: React.FC = () => {
               <div className="relative w-full aspect-square max-w-md mx-auto">
                 <div className="absolute inset-0 bg-gradient-radial from-tintto-blue/20 to-transparent rounded-full animate-glow"></div>
                 <div className="glassmorphism absolute inset-4 rounded-full glass-card flex items-center justify-center overflow-hidden border border-white/10">
-                  <div className="absolute inset-0 bg-gradient-to-br from-tintto-blue/10 to-tintto-accent/5"></div>
+                  <div className="absolute inset-0  bg-slate-50"></div>
                   <div className="z-10 text-center p-8">
                     <div className="mb-4 w-16 h-16 mx-auto rounded-full bg-tintto-blue/20 flex items-center justify-center">
                       <div className="w-8 h-8 rounded-full bg-gradient-to-r from-tintto-blue to-tintto-accent"></div>
