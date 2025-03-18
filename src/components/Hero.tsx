@@ -1,4 +1,3 @@
-
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -39,17 +38,16 @@ const Hero: React.FC = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative min-h-screen flex flex-col justify-center items-center px-6 overflow-hidden"
-      style={{ background: "linear-gradient(160deg, #0A0F1F 0%, #131d38 100%)" }}
+      className="relative min-h-screen flex flex-col justify-center items-center px-6 overflow-hidden bg-white"
     >
       {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div 
-          className="absolute top-20 left-[10%] w-72 h-72 rounded-full bg-tintto-blue/10 blur-3xl parallax-element"
+          className="absolute top-20 left-[10%] w-72 h-72 rounded-full bg-tintto-blue/5 blur-3xl parallax-element"
           data-speed="0.05"
         ></div>
         <div 
-          className="absolute bottom-20 right-[10%] w-80 h-80 rounded-full bg-tintto-accent/10 blur-3xl parallax-element"
+          className="absolute bottom-20 right-[10%] w-80 h-80 rounded-full bg-tintto-accent/5 blur-3xl parallax-element"
           data-speed="0.08"
         ></div>
         <div 
@@ -62,7 +60,7 @@ const Hero: React.FC = () => {
           data-speed="0.1"
         ></div>
         <div 
-          className="absolute top-1/4 left-1/3 w-3 h-3 rounded-full bg-white/40 animate-float parallax-element"
+          className="absolute top-1/4 left-1/3 w-3 h-3 rounded-full bg-gray-300 animate-float parallax-element"
           style={{ animationDelay: "1.5s" }}
           data-speed="0.15"
         ></div>
