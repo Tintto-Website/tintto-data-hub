@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
@@ -8,61 +7,45 @@ import { ArrowRight, BrainCircuit, BarChart3 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import ServiceCard from "@/components/ServiceCard";
 import UseCaseCard from "@/components/UseCaseCard";
-
 const Index = () => {
   const [activeFilter, setActiveFilter] = useState("All");
-  
-  const useCases = [
-    {
-      title: "AI-Powered Diagnostics",
-      description: "Analyze medical images and patient data for faster, more accurate diagnoses.",
-      tags: ["Healthcare", "AI Automation"],
-      delay: 100,
-    },
-    {
-      title: "Automated Financial Forecasting",
-      description: "Use advanced AI algorithms to predict cash flow, revenue, and expenses with high accuracy.",
-      tags: ["Finance", "AI Automation"],
-      delay: 200,
-    },
-    {
-      title: "Predictive Marketing Campaigns",
-      description: "Leverage machine learning for data-driven, predictive marketing that enhances brand positioning.",
-      tags: ["Marketing", "Machine Learning"],
-      delay: 300,
-    },
-    {
-      title: "Supply Chain Optimization",
-      description: "Use AI to optimize inventory, predict demand, and streamline logistics operations.",
-      tags: ["Retail", "AI Automation"],
-      delay: 400,
-    },
-    {
-      title: "Customer Service Automation",
-      description: "Deploy intelligent chatbots and virtual assistants to improve customer experience.",
-      tags: ["Customer Service", "AI Automation"],
-      delay: 500,
-    },
-    {
-      title: "Fraud Detection Systems",
-      description: "Implement machine learning models to identify suspicious patterns and prevent fraud.",
-      tags: ["Finance", "Machine Learning", "Security"],
-      delay: 600,
-    }
-  ];
-  
+  const useCases = [{
+    title: "AI-Powered Diagnostics",
+    description: "Analyze medical images and patient data for faster, more accurate diagnoses.",
+    tags: ["Healthcare", "AI Automation"],
+    delay: 100
+  }, {
+    title: "Automated Financial Forecasting",
+    description: "Use advanced AI algorithms to predict cash flow, revenue, and expenses with high accuracy.",
+    tags: ["Finance", "AI Automation"],
+    delay: 200
+  }, {
+    title: "Predictive Marketing Campaigns",
+    description: "Leverage machine learning for data-driven, predictive marketing that enhances brand positioning.",
+    tags: ["Marketing", "Machine Learning"],
+    delay: 300
+  }, {
+    title: "Supply Chain Optimization",
+    description: "Use AI to optimize inventory, predict demand, and streamline logistics operations.",
+    tags: ["Retail", "AI Automation"],
+    delay: 400
+  }, {
+    title: "Customer Service Automation",
+    description: "Deploy intelligent chatbots and virtual assistants to improve customer experience.",
+    tags: ["Customer Service", "AI Automation"],
+    delay: 500
+  }, {
+    title: "Fraud Detection Systems",
+    description: "Implement machine learning models to identify suspicious patterns and prevent fraud.",
+    tags: ["Finance", "Machine Learning", "Security"],
+    delay: 600
+  }];
   const filters = ["All", "Healthcare", "Finance", "Marketing", "Retail", "Customer Service", "Security", "AI Automation", "Machine Learning"];
-  
-  const filteredUseCases = activeFilter === "All"
-    ? useCases
-    : useCases.filter(useCase => useCase.tags.includes(activeFilter));
-  
+  const filteredUseCases = activeFilter === "All" ? useCases : useCases.filter(useCase => useCase.tags.includes(activeFilter));
   const handleFilterClick = (filter: string) => {
     setActiveFilter(filter);
   };
-
-  return (
-    <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col">
       <Navbar />
       <Hero />
 
@@ -83,29 +66,9 @@ const Index = () => {
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-            <ServiceCard
-              title="AI Agents & Automation"
-              description="Deploy intelligent AI agents to automate tasks, streamline operations, and integrate seamlessly with your systems, enhancing your team's focus on strategic goals."
-              benefits={[
-                "Streamlined workflows", 
-                "Adaptive problem-solving", 
-                "Tool integration"
-              ]}
-              icon={<BrainCircuit className="w-8 h-8" />}
-              delay={100}
-            />
+            <ServiceCard title="AI Agents & Automation" description="Deploy intelligent AI agents to automate tasks, streamline operations, and integrate seamlessly with your systems, enhancing your team's focus on strategic goals." benefits={["Streamlined workflows", "Adaptive problem-solving", "Tool integration"]} icon={<BrainCircuit className="w-8 h-8" />} delay={100} />
 
-            <ServiceCard
-              title="Data Insights & Analytics"
-              description="Convert your data into powerful insights with advanced analytics and user-friendly dashboards tailored to your needs."
-              benefits={[
-                "Scalable data systems", 
-                "Real-time visibility", 
-                "KPI-focused results"
-              ]}
-              icon={<BarChart3 className="w-8 h-8" />}
-              delay={200}
-            />
+            <ServiceCard title="Data Insights & Analytics" description="Convert your data into powerful insights with advanced analytics and user-friendly dashboards tailored to your needs." benefits={["Scalable data systems", "Real-time visibility", "KPI-focused results"]} icon={<BarChart3 className="w-8 h-8" />} delay={200} />
           </div>
 
           <div className="text-center mt-12">
@@ -133,39 +96,18 @@ const Index = () => {
           </AnimatedSection>
 
           <div className="flex flex-wrap justify-center gap-3 mt-8">
-            {filters.map(filter => (
-              <button
-                key={filter}
-                className={`bubble-filter ${activeFilter === filter ? 'active' : ''}`}
-                onClick={() => handleFilterClick(filter)}
-              >
+            {filters.map(filter => <button key={filter} className={`bubble-filter ${activeFilter === filter ? 'active' : ''}`} onClick={() => handleFilterClick(filter)}>
                 {filter}
-              </button>
-            ))}
+              </button>)}
           </div>
 
           <div className="use-case-grid">
-            {filteredUseCases.length > 0 ? (
-              filteredUseCases.map((useCase, index) => (
-                <UseCaseCard
-                  key={index}
-                  title={useCase.title}
-                  description={useCase.description}
-                  tags={useCase.tags}
-                  delay={useCase.delay}
-                />
-              ))
-            ) : (
-              <div className="col-span-3 text-center py-12">
+            {filteredUseCases.length > 0 ? filteredUseCases.map((useCase, index) => <UseCaseCard key={index} title={useCase.title} description={useCase.description} tags={useCase.tags} delay={useCase.delay} />) : <div className="col-span-3 text-center py-12">
                 <h3 className="text-xl text-gray-800 mb-4">No use cases found for this filter</h3>
-                <button 
-                  className="btn-secondary"
-                  onClick={() => handleFilterClick("All")}
-                >
+                <button className="btn-secondary" onClick={() => handleFilterClick("All")}>
                   Show All Use Cases
                 </button>
-              </div>
-            )}
+              </div>}
           </div>
 
           <div className="text-center mt-12">
@@ -185,7 +127,7 @@ const Index = () => {
                 <div className="w-full aspect-square max-w-md mx-auto relative">
                   <div className="absolute inset-0 bg-gradient-radial from-tintto-blue/20 to-transparent rounded-full animate-glow"></div>
                   <div className="absolute inset-0 glass-card rounded-2xl overflow-hidden flex items-center justify-center">
-                    <div className="absolute inset-0 bg-gradient-to-br from-tintto-blue/10 to-tintto-accent/5"></div>
+                    <div className="absolute inset-0 bg-gradient-to-br from-tintto-blue/10 to-tintto-accent/5 bg-slate-50"></div>
                     <div className="relative z-10 p-10">
                       <div className="grid grid-cols-2 gap-4">
                         <div className="glass-card rounded-lg p-4 bg-tintto-blue/5">
@@ -250,8 +192,6 @@ const Index = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
