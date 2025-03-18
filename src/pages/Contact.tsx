@@ -61,7 +61,7 @@ const Contact = () => {
       </section>
 
       {/* Contact Form and Info */}
-      <section className="py-16 px-6">
+      <section className="py-16 px-6 bg-slate-50">
         <div className="container max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <AnimatedSection direction="left">
