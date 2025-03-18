@@ -93,7 +93,7 @@ const Hero: React.FC = () => {
                       <div className="w-8 h-8 rounded-full bg-gradient-to-r from-tintto-blue to-tintto-accent"></div>
                     </div>
                     <h3 className="text-2xl font-bold mb-2 text-gray-800">AI-Powered Solutions</h3>
-                    <p className="text-gray-600">Transform your business with cutting-edge AI Agents and Foundational Data Model solutions and dashboards</p>
+                    <p className="text-gray-600 text-sm">Transform your business with cutting-edge AI Agents and Foundational Data Model Solutions</p>
                   </div>
                 </div>
               </div>
