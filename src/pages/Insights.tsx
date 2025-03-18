@@ -26,7 +26,7 @@ const Article: React.FC<ArticleProps> = ({
         <div className="h-48 bg-tintto-gray-light/20"></div>
         <div className="p-6">
           <div className="flex items-center mb-4">
-            <span className="px-3 py-1 bg-tintto-blue/20 text-tintto-accent rounded-full text-xs">
+            <span className="px-3 py-1 bg-tintto-blue/20 rounded-full text-tintto-blue text-[tintto-blue-light]">
               {category}
             </span>
             <div className="flex items-center text-gray-500 text-sm ml-4">
