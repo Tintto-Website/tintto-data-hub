@@ -38,13 +38,13 @@ const Navbar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 md:px-12",
         scrolled
-          ? "py-3 bg-tintto-dark/90 backdrop-blur-lg shadow-lg"
+          ? "py-3 bg-white/90 backdrop-blur-lg shadow-lg"
           : "py-4 bg-transparent"
       )}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link to="/" className="flex items-center z-20">
-          <div className="text-white font-bold text-lg flex items-start">
+          <div className="text-gray-800 font-bold text-lg flex items-start">
             tintto<span className="text-xs text-tintto-accent align-top mt-1">DataLabs</span>
           </div>
         </Link>
@@ -57,7 +57,7 @@ const Navbar = () => {
               to={item.path}
               className={cn(
                 "nav-item px-3 py-2 rounded-md transition-colors",
-                location.pathname === item.path ? "text-white" : "text-white/70 hover:text-white"
+                location.pathname === item.path ? "text-gray-900" : "text-gray-600 hover:text-gray-900"
               )}
             >
               {item.label}
@@ -74,7 +74,7 @@ const Navbar = () => {
 
         {/* Mobile Navigation Toggle */}
         <button
-          className="md:hidden z-20 text-white focus:outline-none"
+          className="md:hidden z-20 text-gray-800 focus:outline-none"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -88,7 +88,7 @@ const Navbar = () => {
         {/* Mobile Navigation Menu */}
         <div
           className={cn(
-            "fixed inset-0 bg-tintto-dark/95 backdrop-blur-lg flex flex-col justify-center items-center transition-all duration-300 ease-in-out z-10",
+            "fixed inset-0 bg-white/95 backdrop-blur-lg flex flex-col justify-center items-center transition-all duration-300 ease-in-out z-10",
             isMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           )}
         >
@@ -100,8 +100,8 @@ const Navbar = () => {
                 className={cn(
                   "text-xl font-medium transition-all duration-300",
                   location.pathname === item.path
-                    ? "text-white"
-                    : "text-white/70 hover:text-white",
+                    ? "text-gray-900"
+                    : "text-gray-600 hover:text-gray-900",
                   isMenuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
                 )}
                 style={{

@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -76,7 +77,7 @@ const Hero: React.FC = () => {
             </AnimatedSection>
             
             <AnimatedSection direction="up" delay={200}>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-gray-800">
                 Empower Your Business with{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-tintto-blue to-tintto-accent">
                   Intelligent AI
@@ -86,7 +87,7 @@ const Hero: React.FC = () => {
             </AnimatedSection>
             
             <AnimatedSection direction="up" delay={300}>
-              <p className="text-lg text-white/80 mb-8 max-w-xl lg:max-w-none">
+              <p className="text-gray-600 mb-8 max-w-xl lg:max-w-none">
                 Unlock efficiency, cut costs, and drive smarter decisions with our custom AI and data expertise.
               </p>
             </AnimatedSection>
@@ -109,12 +110,12 @@ const Hero: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-radial from-tintto-blue/20 to-transparent rounded-full animate-glow"></div>
                 <div className="glassmorphism absolute inset-4 rounded-full glass-card flex items-center justify-center overflow-hidden border border-white/10">
                   <div className="absolute inset-0 bg-gradient-to-br from-tintto-blue/10 to-tintto-accent/5"></div>
-                  <div className="z-10 text-white text-center p-8">
+                  <div className="z-10 text-center p-8">
                     <div className="mb-4 w-16 h-16 mx-auto rounded-full bg-tintto-blue/20 flex items-center justify-center">
                       <div className="w-8 h-8 rounded-full bg-gradient-to-r from-tintto-blue to-tintto-accent"></div>
                     </div>
-                    <h3 className="text-2xl font-bold mb-2">AI-Powered Solutions</h3>
-                    <p className="text-white/70">Transform your business with cutting-edge technology</p>
+                    <h3 className="text-2xl font-bold mb-2 text-gray-800">AI-Powered Solutions</h3>
+                    <p className="text-gray-600">Transform your business with cutting-edge technology</p>
                   </div>
                 </div>
               </div>
@@ -128,40 +129,40 @@ const Hero: React.FC = () => {
               <div className="w-12 h-12 rounded-lg bg-tintto-blue/20 flex items-center justify-center mb-4">
                 <div className="w-6 h-6 rounded-full bg-gradient-to-r from-tintto-blue to-tintto-accent"></div>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Increase Efficiency</h3>
-              <p className="text-white/70">Achieve up to 50% productivity gains with AI-driven automation.</p>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">Increase Efficiency</h3>
+              <p className="text-gray-600">Achieve up to 50% productivity gains with AI-driven automation.</p>
             </div>
             
             <div className="highlight-card">
               <div className="w-12 h-12 rounded-lg bg-tintto-blue/20 flex items-center justify-center mb-4">
                 <div className="w-6 h-6 rounded-full bg-gradient-to-r from-tintto-blue to-tintto-accent"></div>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Lower Costs</h3>
-              <p className="text-white/70">Reduce operational expenses by streamlining processes with smart technology.</p>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">Lower Costs</h3>
+              <p className="text-gray-600">Reduce operational expenses by streamlining processes with smart technology.</p>
             </div>
             
             <div className="highlight-card">
               <div className="w-12 h-12 rounded-lg bg-tintto-blue/20 flex items-center justify-center mb-4">
                 <div className="w-6 h-6 rounded-full bg-gradient-to-r from-tintto-blue to-tintto-accent"></div>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Smarter Insights</h3>
-              <p className="text-white/70">Turn data into decisions with real-time analytics and dashboards.</p>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">Smarter Insights</h3>
+              <p className="text-gray-600">Turn data into decisions with real-time analytics and dashboards.</p>
             </div>
             
             <div className="highlight-card">
               <div className="w-12 h-12 rounded-lg bg-tintto-blue/20 flex items-center justify-center mb-4">
                 <div className="w-6 h-6 rounded-full bg-gradient-to-r from-tintto-blue to-tintto-accent"></div>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Trusted Innovation</h3>
-              <p className="text-white/70">Rely on ethical, compliant solutions for long-term success.</p>
+              <h3 className="text-xl font-semibold mb-2 text-gray-800">Trusted Innovation</h3>
+              <p className="text-gray-600">Rely on ethical, compliant solutions for long-term success.</p>
             </div>
           </div>
         </AnimatedSection>
       </div>
       
       <div className="absolute bottom-8 left-0 right-0 flex justify-center animate-bounce">
-        <div className="w-10 h-10 rounded-full border-2 border-white/20 flex items-center justify-center">
-          <div className="w-1 h-3 bg-white/60 rounded-full"></div>
+        <div className="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center">
+          <div className="w-1 h-3 bg-gray-400 rounded-full"></div>
         </div>
       </div>
     </section>
