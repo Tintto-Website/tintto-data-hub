@@ -25,21 +25,21 @@ const ServicePillar: React.FC<ServicePillarProps> = ({
       delay={delay} 
       className={cn("h-full", className)}
     >
-      <div className="bg-tintto-dark text-white p-8 h-full flex flex-col">
-        <div className="w-12 h-12 flex items-center justify-center mb-6">
-          <div className="text-white">{icon}</div>
+      <div className="glass-card p-8 h-full flex flex-col">
+        <div className="w-16 h-16 rounded-xl bg-tintto-blue/20 flex items-center justify-center mb-6 group-hover:bg-tintto-blue/30 transition-all duration-300">
+          <div className="text-tintto-accent">{icon}</div>
         </div>
         
-        <h3 className="text-2xl font-medium mb-4">{title}</h3>
+        <h3 className="text-2xl font-bold mb-4">{title}</h3>
         <p className="text-white/70 mb-6">{description}</p>
         
         <div className="mt-auto">
-          <h4 className="text-sm uppercase tracking-wider text-white mb-4 font-medium">Key Use Cases</h4>
+          <h4 className="text-sm font-semibold uppercase tracking-wider text-tintto-accent mb-4">Key Use Cases</h4>
           <ul className="space-y-3">
             {useCases.map((useCase, index) => (
               <li key={index} className="flex items-start space-x-2">
-                <span className="w-4 h-4 mt-0.5 flex-shrink-0 bg-white/20 flex items-center justify-center">
-                  <span className="w-2 h-0.5 bg-white"></span>
+                <span className="w-5 h-5 mt-0.5 flex-shrink-0 rounded-full bg-tintto-blue/20 flex items-center justify-center">
+                  <span className="w-2 h-2 rounded-full bg-tintto-accent"></span>
                 </span>
                 <span className="text-white/80">{useCase}</span>
               </li>
