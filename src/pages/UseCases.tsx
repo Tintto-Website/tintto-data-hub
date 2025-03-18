@@ -380,7 +380,7 @@ const UseCases = () => {
       <section className="pt-32 pb-20 px-6 bg-tintto-blue-dark/30">
         <div className="container max-w-7xl mx-auto text-center">
           <AnimatedSection>
-            <span className="inline-block px-4 py-2 rounded-full bg-tintto-blue/10 border border-tintto-blue/20 text-sm font-medium mb-4 text-zinc-950">
+            <span className="inline-block px-4 py-2 rounded-full bg-tintto-blue/10 border border-tintto-blue/20 text-sm font-medium mb-4 text-tintto-blue">
               Use Cases
             </span>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Hundreds of Use Cases</h1>
