@@ -127,7 +127,7 @@ const Index = () => {
                 <div className="w-full aspect-square max-w-md mx-auto relative">
                   <div className="absolute inset-0 bg-gradient-radial from-tintto-blue/20 to-transparent rounded-full animate-glow"></div>
                   <div className="absolute inset-0 glass-card rounded-2xl overflow-hidden flex items-center justify-center">
-                    <div className="absolute inset-0 bg-gradient-to-br from-tintto-blue/10 to-tintto-accent/5 bg-slate-50"></div>
+                    <div className="absolute inset-0 bg-white"></div>
                     <div className="relative z-10 p-10">
                       <div className="grid grid-cols-2 gap-4">
                         <div className="glass-card rounded-lg p-4 bg-tintto-blue/5">
