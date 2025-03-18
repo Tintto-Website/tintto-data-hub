@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,13 +64,13 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				tintto: {
-					dark: '#111827',
-					blue: '#1E40AF',
-					'blue-light': '#3B82F6',
-					'blue-dark': '#1E3A8A',
-					gray: '#1F2937',
-					'gray-light': '#4B5563',
-					accent: '#60A5FA'
+					dark: '#FFFFFF', // White background instead of dark
+					blue: '#1E40AF', // Keep original blue
+					'blue-light': '#3B82F6', // Keep light blue
+					'blue-dark': '#1E3A8A', // Keep dark blue
+					gray: '#F1F1F1', // Light gray
+					'gray-light': '#888888', // Medium gray
+					accent: '#33C3F0', // Light blue highlight
 				}
 			},
 			borderRadius: {
@@ -175,8 +176,8 @@ export default {
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
 				'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-				'blue-glow': 'linear-gradient(180deg, rgba(14, 125, 241, 0.2) 0%, rgba(46, 238, 240, 0.1) 100%)',
-				'card-gradient': 'linear-gradient(to bottom, rgba(46, 238, 240, 0.1), rgba(14, 125, 241, 0.05))',
+				'blue-glow': 'linear-gradient(180deg, rgba(59, 130, 246, 0.2) 0%, rgba(51, 195, 240, 0.1) 100%)',
+				'card-gradient': 'linear-gradient(to bottom, rgba(51, 195, 240, 0.1), rgba(30, 64, 175, 0.05))',
 			}
 		}
 	},
