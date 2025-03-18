@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-center justify-between">
           <div className="w-full lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
             <AnimatedSection direction="up" delay={100}>
-              <span className="inline-block px-4 py-2 rounded-full bg-tintto-blue/10 border border-tintto-blue/20 text-sm font-medium mb-6 text-zinc-700">
+              <span className="inline-block px-4 py-2 rounded-full bg-tintto-blue/10 border border-tintto-blue/20 text-sm font-medium mb-6 text-tintto-blue">
                 AI & Data Solutions
               </span>
             </AnimatedSection>
