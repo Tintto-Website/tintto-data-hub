@@ -17,7 +17,7 @@ const About = () => {
               About Us
             </span>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Story</h1>
-            <p className="text-white/70 max-w-3xl mx-auto text-lg">
+            <p className="text-gray-700 max-w-3xl mx-auto text-lg">
               Learn about our mission, values, and the team behind Tintto Data Labs
             </p>
           </AnimatedSection>
@@ -37,20 +37,20 @@ const About = () => {
                     <div className="relative z-10 p-10">
                       <div className="grid grid-cols-2 gap-4">
                         <div className="glass-card rounded-lg p-4 bg-white/5">
-                          <h4 className="text-lg font-semibold mb-1">Innovation</h4>
-                          <p className="text-white/60 text-sm">Pushing boundaries with cutting-edge technology</p>
+                          <h4 className="text-lg font-semibold mb-1 text-gray-800">Innovation</h4>
+                          <p className="text-gray-600 text-sm">Pushing boundaries with cutting-edge technology</p>
                         </div>
                         <div className="glass-card rounded-lg p-4 bg-white/5">
-                          <h4 className="text-lg font-semibold mb-1">Partnership</h4>
-                          <p className="text-white/60 text-sm">Working closely with clients for shared success</p>
+                          <h4 className="text-lg font-semibold mb-1 text-gray-800">Partnership</h4>
+                          <p className="text-gray-600 text-sm">Working closely with clients for shared success</p>
                         </div>
                         <div className="glass-card rounded-lg p-4 bg-white/5">
-                          <h4 className="text-lg font-semibold mb-1">Excellence</h4>
-                          <p className="text-white/60 text-sm">Delivering solutions that exceed expectations</p>
+                          <h4 className="text-lg font-semibold mb-1 text-gray-800">Excellence</h4>
+                          <p className="text-gray-600 text-sm">Delivering solutions that exceed expectations</p>
                         </div>
                         <div className="glass-card rounded-lg p-4 bg-white/5">
-                          <h4 className="text-lg font-semibold mb-1">Responsibility</h4>
-                          <p className="text-white/60 text-sm">Prioritizing ethical and sustainable practices</p>
+                          <h4 className="text-lg font-semibold mb-1 text-gray-800">Responsibility</h4>
+                          <p className="text-gray-600 text-sm">Prioritizing ethical and sustainable practices</p>
                         </div>
                       </div>
                     </div>
@@ -61,15 +61,15 @@ const About = () => {
 
             <AnimatedSection direction="right">
               <h2 className="text-3xl font-bold mb-6">Our Story</h2>
-              <p className="text-white/80 mb-6">
+              <p className="text-gray-700 mb-6">
                 Tintto Data Labs is dedicated to revolutionizing how businesses leverage AI and data. We combine innovative technology with strategic expertise to create solutions that drive efficiency, insight, and growth. Our focus on ethics and collaboration ensures we deliver value that lasts.
               </p>
-              <p className="text-white/80 mb-8">
+              <p className="text-gray-700 mb-8">
                 With a team of industry experts and a passion for innovation, we're committed to helping organizations navigate the complex world of AI and data, turning challenges into opportunities and ideas into results.
               </p>
               
               <h3 className="text-2xl font-semibold mb-4">Our Mission</h3>
-              <p className="text-white/80 mb-10">
+              <p className="text-gray-700 mb-10">
                 To empower organizations with AI and data solutions that solve real challenges, deliver measurable results, and uphold the highest standards of integrity.
               </p>
               
@@ -80,8 +80,8 @@ const About = () => {
                     <span className="w-2 h-2 rounded-full bg-tintto-accent"></span>
                   </span>
                   <div>
-                    <h4 className="font-semibold">Innovation</h4>
-                    <p className="text-white/70">Pushing boundaries with cutting-edge technology.</p>
+                    <h4 className="font-semibold text-gray-800">Innovation</h4>
+                    <p className="text-gray-600">Pushing boundaries with cutting-edge technology.</p>
                   </div>
                 </li>
                 <li className="flex items-start">
@@ -89,8 +89,8 @@ const About = () => {
                     <span className="w-2 h-2 rounded-full bg-tintto-accent"></span>
                   </span>
                   <div>
-                    <h4 className="font-semibold">Partnership</h4>
-                    <p className="text-white/70">Working closely with clients for shared success.</p>
+                    <h4 className="font-semibold text-gray-800">Partnership</h4>
+                    <p className="text-gray-600">Working closely with clients for shared success.</p>
                   </div>
                 </li>
                 <li className="flex items-start">
@@ -98,8 +98,8 @@ const About = () => {
                     <span className="w-2 h-2 rounded-full bg-tintto-accent"></span>
                   </span>
                   <div>
-                    <h4 className="font-semibold">Excellence</h4>
-                    <p className="text-white/70">Delivering solutions that exceed expectations.</p>
+                    <h4 className="font-semibold text-gray-800">Excellence</h4>
+                    <p className="text-gray-600">Delivering solutions that exceed expectations.</p>
                   </div>
                 </li>
                 <li className="flex items-start">
@@ -107,8 +107,8 @@ const About = () => {
                     <span className="w-2 h-2 rounded-full bg-tintto-accent"></span>
                   </span>
                   <div>
-                    <h4 className="font-semibold">Responsibility</h4>
-                    <p className="text-white/70">Prioritizing ethical and sustainable practices.</p>
+                    <h4 className="font-semibold text-gray-800">Responsibility</h4>
+                    <p className="text-gray-600">Prioritizing ethical and sustainable practices.</p>
                   </div>
                 </li>
               </ul>

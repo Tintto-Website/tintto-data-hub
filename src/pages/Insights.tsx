@@ -33,16 +33,16 @@ const Article: React.FC<ArticleProps> = ({
             <span className="px-3 py-1 bg-tintto-blue/20 text-tintto-accent rounded-full text-xs">
               {category}
             </span>
-            <div className="flex items-center text-white/50 text-sm ml-4">
+            <div className="flex items-center text-gray-500 text-sm ml-4">
               <Calendar className="w-4 h-4 mr-1" /> {date}
             </div>
-            <div className="flex items-center text-white/50 text-sm ml-4">
+            <div className="flex items-center text-gray-500 text-sm ml-4">
               <User className="w-4 h-4 mr-1" /> {author}
             </div>
           </div>
           
-          <h3 className="text-xl font-bold mb-3">{title}</h3>
-          <p className="text-white/70 mb-4">{excerpt}</p>
+          <h3 className="text-xl font-bold mb-3 text-gray-800">{title}</h3>
+          <p className="text-gray-600 mb-4">{excerpt}</p>
           
           <Link 
             to="#" 
@@ -135,7 +135,7 @@ const Insights = () => {
               Insights
             </span>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Thought Leadership</h1>
-            <p className="text-white/70 max-w-3xl mx-auto text-lg">
+            <p className="text-gray-700 max-w-3xl mx-auto text-lg">
               Stay informed with Tintto Data Labs' insights on the latest trends and strategies in AI and data. 
               Our articles offer actionable ideas for your business.
             </p>
@@ -201,8 +201,8 @@ const Insights = () => {
         <div className="container max-w-5xl mx-auto">
           <AnimatedSection>
             <div className="glass-card p-8 md:p-12 text-center">
-              <h2 className="text-3xl font-bold mb-6">Subscribe to Our Newsletter</h2>
-              <p className="text-white/70 max-w-2xl mx-auto mb-8">
+              <h2 className="text-3xl font-bold mb-6 text-gray-800">Subscribe to Our Newsletter</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto mb-8">
                 Get the latest insights, articles, and updates from Tintto Data Labs delivered directly to your inbox.
               </p>
               <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
