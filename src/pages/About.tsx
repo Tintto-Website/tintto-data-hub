@@ -1,19 +1,16 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AnimatedSection from "@/components/AnimatedSection";
-
 const About = () => {
-  return (
-    <div className="min-h-screen flex flex-col">
+  return <div className="min-h-screen flex flex-col">
       <Navbar />
       
       {/* Header */}
       <section className="pt-32 pb-20 px-6 bg-gradient-to-b from-tintto-blue-dark/30 to-tintto-dark">
         <div className="container max-w-7xl mx-auto text-center">
           <AnimatedSection>
-            <span className="inline-block px-4 py-2 rounded-full bg-tintto-blue/10 border border-tintto-blue/20 text-tintto-accent text-sm font-medium mb-4">
+            <span className="inline-block px-4 py-2 rounded-full bg-tintto-blue/10 border border-tintto-blue/20 text-sm font-medium mb-4 text-zinc-950">
               About Us
             </span>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Story</h1>
@@ -118,8 +115,6 @@ const About = () => {
       </section>
       
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default About;
