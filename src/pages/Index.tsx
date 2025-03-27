@@ -7,10 +7,8 @@ import { ArrowRight, BrainCircuit, BarChart3 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import ServiceCard from "@/components/ServiceCard";
 import UseCaseCard from "@/components/UseCaseCard";
-
 const Index = () => {
   const [activeFilter, setActiveFilter] = useState("AI Automation");
-  
   const useCases = [{
     title: "AI-Powered Diagnostics",
     description: "Analyze medical images and patient data for faster, more accurate diagnoses.",
@@ -357,17 +355,11 @@ const Index = () => {
     tags: ["Business Intelligence", "LLMs"],
     delay: 300
   }];
-
   const filters = ["Healthcare", "Finance", "Marketing", "Performance Metrics", "AI Automation", "Machine Learning", "Data Enrichment", "Strategic Planning", "LLMs", "Supply Chain", "Task Automation", "Business Intelligence", "Recruitment", "Brand Positioning", "Revenue Optimization", "Human Resources", "Customer Support", "Sales Enablement", "Customer Experience", "Manufacturing", "Cybersecurity", "Product Development", "Retail & E-commerce", "Legal", "Education & Training", "Cloud Solutions"];
-  
-  const filteredUseCases = activeFilter 
-    ? useCases.filter(useCase => useCase.tags.includes(activeFilter)) 
-    : useCases;
-
+  const filteredUseCases = activeFilter ? useCases.filter(useCase => useCase.tags.includes(activeFilter)) : useCases;
   const handleFilterClick = (filter: string) => {
     setActiveFilter(filter === activeFilter ? "" : filter);
   };
-
   return <div className="min-h-screen flex flex-col">
       <Navbar />
       <Hero />
@@ -419,36 +411,18 @@ const Index = () => {
           </AnimatedSection>
 
           <div className="flex flex-wrap justify-center gap-3 mt-8">
-            {filters.map(filter => (
-              <button 
-                key={filter} 
-                className={`bubble-filter ${activeFilter === filter ? 'active' : ''}`} 
-                onClick={() => handleFilterClick(filter)}
-              >
+            {filters.map(filter => <button key={filter} className={`bubble-filter ${activeFilter === filter ? 'active' : ''}`} onClick={() => handleFilterClick(filter)}>
                 {filter}
-              </button>
-            ))}
+              </button>)}
           </div>
 
           <div className="use-case-grid">
-            {filteredUseCases.length > 0 ? (
-              filteredUseCases.map((useCase, index) => (
-                <UseCaseCard 
-                  key={index} 
-                  title={useCase.title} 
-                  description={useCase.description} 
-                  tags={useCase.tags} 
-                  delay={useCase.delay} 
-                />
-              ))
-            ) : (
-              <div className="col-span-3 text-center py-12">
+            {filteredUseCases.length > 0 ? filteredUseCases.map((useCase, index) => <UseCaseCard key={index} title={useCase.title} description={useCase.description} tags={useCase.tags} delay={useCase.delay} />) : <div className="col-span-3 text-center py-12">
                 <h3 className="text-xl text-gray-800 mb-4">No use cases found</h3>
                 <button className="btn-secondary" onClick={() => setActiveFilter("")}>
                   Show All Use Cases
                 </button>
-              </div>
-            )}
+              </div>}
           </div>
 
           <div className="text-center mt-12">
@@ -517,7 +491,7 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-6 ">
+      <section className="py-24 px-6 bg-zinc-100">
         <div className="container max-w-5xl mx-auto text-center">
           <AnimatedSection>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-800">Ready to Transform Your Business?</h2>
@@ -535,5 +509,4 @@ const Index = () => {
       <Footer />
     </div>;
 };
-
 export default Index;
