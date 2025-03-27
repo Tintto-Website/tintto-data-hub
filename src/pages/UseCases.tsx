@@ -4,28 +4,33 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import UseCaseCard from "@/components/UseCaseCard";
 import AnimatedSection from "@/components/AnimatedSection";
+
 const UseCases = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
   const filterParam = queryParams.get('filter');
-  const [activeFilter, setActiveFilter] = useState(filterParam || "All");
+  const [activeFilter, setActiveFilter] = useState(filterParam || "");
+
   useEffect(() => {
     if (filterParam) {
       setActiveFilter(filterParam);
     } else {
-      setActiveFilter("All");
+      setActiveFilter("");
     }
   }, [filterParam]);
+
   const handleFilterClick = (category: string) => {
-    setActiveFilter(category);
-    if (category === "All") {
+    setActiveFilter(category === activeFilter ? "" : category);
+    if (category === activeFilter) {
       navigate('/use-cases');
     } else {
       navigate(`/use-cases?filter=${encodeURIComponent(category)}`);
     }
   };
-  const categories = ["All", "Healthcare", "Finance", "Marketing", "Performance Metrics", "AI Automation", "Machine Learning", "Data Enrichment", "Strategic Planning", "LLMs", "Supply Chain", "Task Automation", "Business Intelligence", "Recruitment", "Brand Positioning", "Revenue Optimization", "Human Resources", "Customer Support", "Sales Enablement", "Customer Experience", "Manufacturing", "Cybersecurity", "Product Development", "Retail & E-commerce", "Legal", "Education & Training", "Cloud Solutions"];
+
+  const categories = ["Healthcare", "Finance", "Marketing", "Performance Metrics", "AI Automation", "Machine Learning", "Data Enrichment", "Strategic Planning", "LLMs", "Supply Chain", "Task Automation", "Business Intelligence", "Recruitment", "Brand Positioning", "Revenue Optimization", "Human Resources", "Customer Support", "Sales Enablement", "Customer Experience", "Manufacturing", "Cybersecurity", "Product Development", "Retail & E-commerce", "Legal", "Education & Training", "Cloud Solutions"];
+
   const useCases = [{
     title: "AI-Powered Diagnostics",
     description: "Analyze medical images and patient data for faster, more accurate diagnoses.",
@@ -372,49 +377,72 @@ const UseCases = () => {
     tags: ["Business Intelligence", "LLMs"],
     delay: 300
   }];
-  const filteredUseCases = activeFilter === "All" ? useCases : useCases.filter(useCase => useCase.tags.some(tag => tag === activeFilter));
-  return <div className="min-h-screen flex flex-col">
-      <Navbar />
-      
-      {/* Header */}
-      <section className="pt-32 pb-20 px-6 bg-tintto-blue-dark/30 bg-slate-50">
-        <div className="container max-w-7xl mx-auto text-center">
-          <AnimatedSection>
-            <span className="inline-block px-4 py-2 rounded-full bg-tintto-blue/10 border border-tintto-blue/20 text-sm font-medium mb-4 text-tintto-blue">
-              Use Cases
-            </span>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Hundreds of Use Cases</h1>
-            <p className="max-w-3xl mx-auto text-lg text-gray-950">
-              The Tintto Data Labs community has discovered countless ways to leverage AI solutions for business growth. 
-              Explore our curated use cases below.
-            </p>
-          </AnimatedSection>
-        </div>
-      </section>
 
-      {/* Filters */}
-      <section className="py-12 px-6 bg-zinc-50">
-        <div className="container max-w-7xl mx-auto">
-          <AnimatedSection>
-            <div className="flex flex-wrap justify-center gap-3 mb-12">
-              {categories.map(category => <button key={category} className={`bubble-filter ${activeFilter === category ? 'active' : ''}`} onClick={() => handleFilterClick(category)}>
-                  {category}
-                </button>)}
-            </div>
-          </AnimatedSection>
+  const filteredUseCases = activeFilter 
+    ? useCases.filter(useCase => useCase.tags.some(tag => tag === activeFilter)) 
+    : useCases;
+
+  return <div className="min-h-screen flex flex-col">
+    <Navbar />
+    
+    {/* Header */}
+    <section className="pt-32 pb-20 px-6 bg-tintto-blue-dark/30 bg-slate-50">
+      <div className="container max-w-7xl mx-auto text-center">
+        <AnimatedSection>
+          <span className="inline-block px-4 py-2 rounded-full bg-tintto-blue/10 border border-tintto-blue/20 text-sm font-medium mb-4 text-tintto-blue">
+            Use Cases
+          </span>
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Hundreds of Use Cases</h1>
+          <p className="max-w-3xl mx-auto text-lg text-gray-950">
+            The Tintto Data Labs community has discovered countless ways to leverage AI solutions for business growth. 
+            Explore our curated use cases below.
+          </p>
+        </AnimatedSection>
+      </div>
+    </section>
+
+    {/* Filters */}
+    <section className="py-12 px-6 bg-zinc-50">
+      <div className="container max-w-7xl mx-auto">
+        <AnimatedSection>
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {categories.map(category => (
+              <button 
+                key={category} 
+                className={`bubble-filter ${activeFilter === category ? 'active' : ''}`} 
+                onClick={() => handleFilterClick(category)}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
           
-          {filteredUseCases.length > 0 ? <div className="use-case-grid">
-              {filteredUseCases.map((useCase, index) => <UseCaseCard key={index} title={useCase.title} description={useCase.description} tags={useCase.tags} delay={useCase.delay} />)}
-            </div> : <div className="text-center py-12">
-              <h3 className="text-xl text-white mb-4">No use cases found for this filter</h3>
-              <button className="btn-secondary" onClick={() => handleFilterClick("All")}>
+          {filteredUseCases.length > 0 ? (
+            <div className="use-case-grid">
+              {filteredUseCases.map((useCase, index) => (
+                <UseCaseCard 
+                  key={index} 
+                  title={useCase.title} 
+                  description={useCase.description} 
+                  tags={useCase.tags} 
+                  delay={useCase.delay} 
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <h3 className="text-xl text-white mb-4">No use cases found</h3>
+              <button className="btn-secondary" onClick={() => setActiveFilter("")}>
                 Show All Use Cases
               </button>
-            </div>}
-        </div>
-      </section>
-      
-      <Footer />
-    </div>;
+            </div>
+          )}
+        </AnimatedSection>
+      </div>
+    </section>
+    
+    <Footer />
+  </div>;
 };
+
 export default UseCases;

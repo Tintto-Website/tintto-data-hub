@@ -9,7 +9,7 @@ import ServiceCard from "@/components/ServiceCard";
 import UseCaseCard from "@/components/UseCaseCard";
 
 const Index = () => {
-  const [activeFilter, setActiveFilter] = useState("All");
+  const [activeFilter, setActiveFilter] = useState("");
   
   const useCases = [{
     title: "AI-Powered Diagnostics",
@@ -358,12 +358,14 @@ const Index = () => {
     delay: 300
   }];
 
-  const filters = ["All", "Healthcare", "Finance", "Marketing", "Performance Metrics", "AI Automation", "Machine Learning", "Data Enrichment", "Strategic Planning", "LLMs", "Supply Chain", "Task Automation", "Business Intelligence", "Recruitment", "Brand Positioning", "Revenue Optimization", "Human Resources", "Customer Support", "Sales Enablement", "Customer Experience", "Manufacturing", "Cybersecurity", "Product Development", "Retail & E-commerce", "Legal", "Education & Training", "Cloud Solutions"];
+  const filters = ["Healthcare", "Finance", "Marketing", "Performance Metrics", "AI Automation", "Machine Learning", "Data Enrichment", "Strategic Planning", "LLMs", "Supply Chain", "Task Automation", "Business Intelligence", "Recruitment", "Brand Positioning", "Revenue Optimization", "Human Resources", "Customer Support", "Sales Enablement", "Customer Experience", "Manufacturing", "Cybersecurity", "Product Development", "Retail & E-commerce", "Legal", "Education & Training", "Cloud Solutions"];
   
-  const filteredUseCases = activeFilter === "All" ? useCases : useCases.filter(useCase => useCase.tags.includes(activeFilter));
-  
+  const filteredUseCases = activeFilter 
+    ? useCases.filter(useCase => useCase.tags.includes(activeFilter)) 
+    : useCases;
+
   const handleFilterClick = (filter: string) => {
-    setActiveFilter(filter);
+    setActiveFilter(filter === activeFilter ? "" : filter);
   };
 
   return <div className="min-h-screen flex flex-col">
@@ -417,18 +419,36 @@ const Index = () => {
           </AnimatedSection>
 
           <div className="flex flex-wrap justify-center gap-3 mt-8">
-            {filters.map(filter => <button key={filter} className={`bubble-filter ${activeFilter === filter ? 'active' : ''}`} onClick={() => handleFilterClick(filter)}>
+            {filters.map(filter => (
+              <button 
+                key={filter} 
+                className={`bubble-filter ${activeFilter === filter ? 'active' : ''}`} 
+                onClick={() => handleFilterClick(filter)}
+              >
                 {filter}
-              </button>)}
+              </button>
+            ))}
           </div>
 
           <div className="use-case-grid">
-            {filteredUseCases.length > 0 ? filteredUseCases.map((useCase, index) => <UseCaseCard key={index} title={useCase.title} description={useCase.description} tags={useCase.tags} delay={useCase.delay} />) : <div className="col-span-3 text-center py-12">
-                <h3 className="text-xl text-gray-800 mb-4">No use cases found for this filter</h3>
-                <button className="btn-secondary" onClick={() => handleFilterClick("All")}>
+            {filteredUseCases.length > 0 ? (
+              filteredUseCases.map((useCase, index) => (
+                <UseCaseCard 
+                  key={index} 
+                  title={useCase.title} 
+                  description={useCase.description} 
+                  tags={useCase.tags} 
+                  delay={useCase.delay} 
+                />
+              ))
+            ) : (
+              <div className="col-span-3 text-center py-12">
+                <h3 className="text-xl text-gray-800 mb-4">No use cases found</h3>
+                <button className="btn-secondary" onClick={() => setActiveFilter("")}>
                   Show All Use Cases
                 </button>
-              </div>}
+              </div>
+            )}
           </div>
 
           <div className="text-center mt-12">
