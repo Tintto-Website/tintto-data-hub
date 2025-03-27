@@ -29,7 +29,7 @@ const Navbar = () => {
     { path: "/services", label: "Services" },
     { path: "/use-cases", label: "Use Cases" },
     { path: "/about", label: "About Us" },
-    { path: "/insights", label: "Insights" },
+    // { path: "/insights", label: "Insights" }, // Hiding the Insights page
     { path: "/contact", label: "Contact" },
   ];
 

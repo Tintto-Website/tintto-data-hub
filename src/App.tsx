@@ -10,7 +10,7 @@ import UseCases from "./pages/UseCases";
 import About from "./pages/About";
 import Team from "./pages/Team";
 import Careers from "./pages/Careers";
-import Insights from "./pages/Insights";
+// import Insights from "./pages/Insights"; // Hiding the Insights page
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -29,7 +29,7 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/team" element={<Team />} />
           <Route path="/careers" element={<Careers />} />
-          <Route path="/insights" element={<Insights />} />
+          {/* <Route path="/insights" element={<Insights />} /> */}
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

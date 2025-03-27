@@ -34,7 +34,6 @@ const Hero: React.FC = () => {
     };
   }, []);
   return <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center items-center px-6 overflow-hidden bg-white">
-      {/* Background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-[10%] w-72 h-72 rounded-full bg-tintto-blue/5 blur-3xl parallax-element" data-speed="0.05"></div>
         <div className="absolute bottom-20 right-[10%] w-80 h-80 rounded-full bg-tintto-accent/5 blur-3xl parallax-element" data-speed="0.08"></div>
@@ -72,9 +71,9 @@ const Hero: React.FC = () => {
             
             <AnimatedSection direction="up" delay={400}>
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="https://zcal.co/jpc/25min" className="btn-primary w-full sm:w-auto">
+                <Link to="/services" className="btn-primary w-full sm:w-auto">
                   <span>Discover Our Solutions</span>
-                </a>
+                </Link>
                 <a href="https://zcal.co/jpc/25min" className="btn-secondary w-full sm:w-auto">
                   Get in Touch
                 </a>
