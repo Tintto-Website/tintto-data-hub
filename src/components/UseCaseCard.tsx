@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { ArrowUpRight } from "lucide-react";
 import AnimatedSection from "./AnimatedSection";
 import { Link, useNavigate } from "react-router-dom";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface UseCaseCardProps {
   title: string;
@@ -21,6 +22,7 @@ const UseCaseCard: React.FC<UseCaseCardProps> = ({
   className,
 }) => {
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
   
   const handleTagClick = (tag: string, e: React.MouseEvent) => {
     e.preventDefault();
@@ -38,7 +40,7 @@ const UseCaseCard: React.FC<UseCaseCardProps> = ({
         <p className="text-gray-600 text-sm mb-4">{description}</p>
         
         <div className="flex flex-wrap gap-2 mb-6">
-          {tags.map((tag, index) => (
+          {tags.slice(0, isMobile ? 2 : tags.length).map((tag, index) => (
             <button
               key={index}
               onClick={(e) => handleTagClick(tag, e)}
