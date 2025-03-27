@@ -5,12 +5,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import UseCaseCard from "@/components/UseCaseCard";
 import AnimatedSection from "@/components/AnimatedSection";
-import { useIsMobile } from "@/hooks/use-mobile";
 
 const UseCases = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const isMobile = useIsMobile();
   const queryParams = new URLSearchParams(location.search);
   const filterParam = queryParams.get('filter');
   
@@ -392,14 +390,14 @@ const UseCases = () => {
     <Navbar />
     
     {/* Header */}
-    <section className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 bg-tintto-blue-dark/30 bg-slate-50">
+    <section className="pt-32 pb-20 px-6 bg-tintto-blue-dark/30 bg-slate-50">
       <div className="container max-w-7xl mx-auto text-center">
         <AnimatedSection>
           <span className="inline-block px-4 py-2 rounded-full bg-tintto-blue/10 border border-tintto-blue/20 text-sm font-medium mb-4 text-tintto-blue">
             Use Cases
           </span>
-          <h1 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6">Hundreds of Use Cases</h1>
-          <p className="max-w-3xl mx-auto text-base md:text-lg text-gray-950">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">Hundreds of Use Cases</h1>
+          <p className="max-w-3xl mx-auto text-lg text-gray-950">
             The Tintto Data Labs community has discovered countless ways to leverage AI solutions for business growth. 
             Explore our curated use cases below.
           </p>
@@ -408,14 +406,14 @@ const UseCases = () => {
     </section>
 
     {/* Filters */}
-    <section className="py-8 md:py-12 px-4 md:px-6 bg-zinc-50">
+    <section className="py-12 px-6 bg-zinc-50">
       <div className="container max-w-7xl mx-auto">
         <AnimatedSection>
-          <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8 md:mb-12 overflow-x-auto pb-2 -mx-4 px-4 md:overflow-visible md:pb-0 md:px-0 md:mx-0">
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
             {categories.map(category => (
               <button 
                 key={category} 
-                className={`bubble-filter text-xs md:text-sm whitespace-nowrap ${activeFilter === category ? 'active' : ''}`}
+                className={`bubble-filter ${activeFilter === category ? 'active' : ''}`} 
                 onClick={() => handleFilterClick(category)}
               >
                 {category}
@@ -437,9 +435,9 @@ const UseCases = () => {
             </div>
           ) : (
             <div className="text-center py-12">
-              <h3 className="text-xl text-gray-800 mb-4">No use cases found</h3>
-              <button className="btn-secondary" onClick={() => setActiveFilter("AI Automation")}>
-                Show AI Automation Use Cases
+              <h3 className="text-xl text-white mb-4">No use cases found</h3>
+              <button className="btn-secondary" onClick={() => setActiveFilter("")}>
+                Show All Use Cases
               </button>
             </div>
           )}
