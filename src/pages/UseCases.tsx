@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -10,15 +11,18 @@ const UseCases = () => {
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
   const filterParam = queryParams.get('filter');
-  const [activeFilter, setActiveFilter] = useState(filterParam || "");
+  
+  // Set default filter to "AI Automation" if no filter is provided in URL
+  const [activeFilter, setActiveFilter] = useState(filterParam || "AI Automation");
 
   useEffect(() => {
     if (filterParam) {
       setActiveFilter(filterParam);
     } else {
-      setActiveFilter("");
+      // If no filter in URL, update URL with default filter
+      navigate(`/use-cases?filter=AI%20Automation`, { replace: true });
     }
-  }, [filterParam]);
+  }, [filterParam, navigate]);
 
   const handleFilterClick = (category: string) => {
     setActiveFilter(category === activeFilter ? "" : category);

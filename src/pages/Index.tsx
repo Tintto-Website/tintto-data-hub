@@ -9,7 +9,7 @@ import ServiceCard from "@/components/ServiceCard";
 import UseCaseCard from "@/components/UseCaseCard";
 
 const Index = () => {
-  const [activeFilter, setActiveFilter] = useState("");
+  const [activeFilter, setActiveFilter] = useState("AI Automation");
   
   const useCases = [{
     title: "AI-Powered Diagnostics",
