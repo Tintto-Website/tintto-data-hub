@@ -1,3 +1,4 @@
+
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
@@ -139,8 +140,8 @@ const Hero: React.FC = () => {
         </AnimatedSection>
       </div>
       
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center animate-bounce">
-        <div className="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center">
+      <div className="absolute bottom-8 left-0 right-0 flex justify-center animate-bounce z-20">
+        <div className="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center bg-white/80 backdrop-blur-sm shadow-sm">
           <div className="w-1 h-3 bg-gray-400 rounded-full"></div>
         </div>
       </div>
