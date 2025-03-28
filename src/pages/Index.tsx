@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Footer from "@/components/Footer";
@@ -10,6 +10,39 @@ import UseCaseCard from "@/components/UseCaseCard";
 
 const Index = () => {
   const [activeFilter, setActiveFilter] = useState("AI Automation");
+  const filterScrollRef = useRef<HTMLDivElement>(null);
+  const useCasesScrollRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const handleWheel = (e: WheelEvent, ref: React.RefObject<HTMLDivElement>) => {
+      if (ref.current) {
+        e.preventDefault();
+        ref.current.scrollLeft += e.deltaY;
+      }
+    };
+    
+    const filterEl = filterScrollRef.current;
+    const useCasesEl = useCasesScrollRef.current;
+    
+    if (filterEl) {
+      filterEl.addEventListener('wheel', (e) => handleWheel(e, filterScrollRef));
+    }
+    
+    if (useCasesEl) {
+      useCasesEl.addEventListener('wheel', (e) => handleWheel(e, useCasesScrollRef));
+    }
+    
+    return () => {
+      if (filterEl) {
+        filterEl.removeEventListener('wheel', (e) => handleWheel(e, filterScrollRef));
+      }
+      
+      if (useCasesEl) {
+        useCasesEl.removeEventListener('wheel', (e) => handleWheel(e, useCasesScrollRef));
+      }
+    };
+  }, []);
+  
   const useCases = [{
     title: "AI-Powered Diagnostics",
     description: "Analyze medical images and patient data for faster, more accurate diagnoses.",
@@ -359,6 +392,8 @@ const Index = () => {
 
   const filters = ["Healthcare", "Finance", "Marketing", "Performance Metrics", "AI Automation", "Machine Learning", "Data Enrichment", "Strategic Planning", "LLMs", "Supply Chain", "Task Automation", "Business Intelligence", "Recruitment", "Brand Positioning", "Revenue Optimization", "Human Resources", "Customer Support", "Sales Enablement", "Customer Experience", "Manufacturing", "Cybersecurity", "Product Development", "Retail & E-commerce", "Legal", "Education & Training", "Cloud Solutions"];
   const filteredUseCases = activeFilter ? useCases.filter(useCase => useCase.tags.includes(activeFilter)) : useCases;
+  
+  const displayedUseCases = filteredUseCases.slice(0, 5);
 
   const handleFilterClick = (filter: string) => {
     setActiveFilter(filter === activeFilter ? "" : filter);
@@ -398,7 +433,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Use Cases Section Preview */}
+      {/* Use Cases Section Preview - Now Horizontal */}
       <section className="py-24 px-6 bg-tintto-gray" id="use-cases">
         <div className="container max-w-7xl mx-auto">
           <AnimatedSection>
@@ -414,22 +449,55 @@ const Index = () => {
             </div>
           </AnimatedSection>
 
-          <div className="flex flex-wrap justify-center gap-3 mt-8">
-            {filters.map(filter => <button key={filter} className={`bubble-filter ${activeFilter === filter ? 'active' : ''}`} onClick={() => handleFilterClick(filter)}>
-                {filter}
-              </button>)}
+          {/* Horizontal filters */}
+          <div 
+            ref={filterScrollRef}
+            className="flex overflow-x-auto pb-4 hide-scrollbar mt-8 mb-8" 
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            <div className="flex space-x-3">
+              {filters.map(filter => (
+                <button 
+                  key={filter} 
+                  className={`bubble-filter whitespace-nowrap ${activeFilter === filter ? 'active' : ''}`} 
+                  onClick={() => handleFilterClick(filter)}
+                >
+                  {filter}
+                </button>
+              ))}
+            </div>
           </div>
 
-          <div className="use-case-grid">
-            {filteredUseCases.length > 0 ? filteredUseCases.map((useCase, index) => <UseCaseCard key={index} title={useCase.title} description={useCase.description} tags={useCase.tags} delay={useCase.delay} />) : <div className="col-span-3 text-center py-12">
+          {/* Horizontal use cases */}
+          <div
+            ref={useCasesScrollRef}
+            className="overflow-x-auto hide-scrollbar pb-8"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {filteredUseCases.length > 0 ? (
+              <div className="flex space-x-6">
+                {displayedUseCases.map((useCase, index) => (
+                  <div key={index} className="min-w-[300px] md:min-w-[350px]">
+                    <UseCaseCard 
+                      title={useCase.title} 
+                      description={useCase.description} 
+                      tags={useCase.tags} 
+                      delay={useCase.delay} 
+                    />
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="col-span-3 text-center py-12">
                 <h3 className="text-xl text-gray-800 mb-4">No use cases found</h3>
                 <button className="btn-secondary" onClick={() => setActiveFilter("")}>
                   Show All Use Cases
                 </button>
-              </div>}
+              </div>
+            )}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-6">
             <Link to="/use-cases" className="btn-secondary inline-flex items-center">
               View All Use Cases <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
@@ -437,7 +505,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section Preview */}
+      {/* About Section Preview - Changed to vertical 1x4 grid */}
       <section className="py-24 px-6" id="about">
         <div className="container max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -447,17 +515,17 @@ const Index = () => {
                   <div className="absolute inset-0 bg-gradient-radial from-tintto-blue/20 to-transparent rounded-full animate-glow"></div>
                   <div className="absolute inset-0 glass-card rounded-2xl overflow-hidden flex items-center justify-center">
                     <div className="absolute inset-0 bg-slate-50"></div>
-                    <div className="relative z-10 p-10">
-                      <div className="grid grid-cols-2 gap-4">
-                        <div className="glass-card rounded-lg p-4 bg-tintto-blue/5 mb-4 md:mb-0">
+                    <div className="relative z-10 p-6 md:p-10">
+                      <div className="flex flex-col space-y-4">
+                        <div className="glass-card rounded-lg p-4 bg-tintto-blue/5">
                           <h4 className="text-base md:text-lg font-semibold mb-1 text-gray-800">Innovation</h4>
                           <p className="text-gray-600 text-xs md:text-sm">Pushing boundaries with cutting-edge technology</p>
                         </div>
-                        <div className="glass-card rounded-lg p-4 bg-tintto-blue/5 mb-4 md:mb-0">
+                        <div className="glass-card rounded-lg p-4 bg-tintto-blue/5">
                           <h4 className="text-base md:text-lg font-semibold mb-1 text-gray-800">Partnership</h4>
                           <p className="text-gray-600 text-xs md:text-sm">Working closely with clients for shared success</p>
                         </div>
-                        <div className="glass-card rounded-lg p-4 bg-tintto-blue/5 mb-4 md:mb-0">
+                        <div className="glass-card rounded-lg p-4 bg-tintto-blue/5">
                           <h4 className="text-base md:text-lg font-semibold mb-1 text-gray-800">Excellence</h4>
                           <p className="text-gray-600 text-xs md:text-sm">Delivering solutions that exceed expectations</p>
                         </div>
