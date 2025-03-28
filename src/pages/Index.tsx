@@ -515,21 +515,21 @@ const Index = () => {
                   <div className="absolute inset-0 bg-gradient-radial from-tintto-blue/20 to-transparent rounded-full animate-glow"></div>
                   <div className="absolute inset-0 glass-card rounded-2xl overflow-hidden flex items-center justify-center">
                     <div className="absolute inset-0 bg-slate-50"></div>
-                    <div className="relative z-10 p-6 md:p-10">
-                      <div className="flex flex-col space-y-4">
-                        <div className="glass-card rounded-lg p-4 bg-tintto-blue/5">
+                    <div className="relative z-10 p-4 md:p-6 overflow-y-auto max-h-full">
+                      <div className="flex flex-col space-y-3">
+                        <div className="glass-card rounded-lg p-3 md:p-4 bg-tintto-blue/5">
                           <h4 className="text-base md:text-lg font-semibold mb-1 text-gray-800">Innovation</h4>
                           <p className="text-gray-600 text-xs md:text-sm">Pushing boundaries with cutting-edge technology</p>
                         </div>
-                        <div className="glass-card rounded-lg p-4 bg-tintto-blue/5">
+                        <div className="glass-card rounded-lg p-3 md:p-4 bg-tintto-blue/5">
                           <h4 className="text-base md:text-lg font-semibold mb-1 text-gray-800">Partnership</h4>
                           <p className="text-gray-600 text-xs md:text-sm">Working closely with clients for shared success</p>
                         </div>
-                        <div className="glass-card rounded-lg p-4 bg-tintto-blue/5">
+                        <div className="glass-card rounded-lg p-3 md:p-4 bg-tintto-blue/5">
                           <h4 className="text-base md:text-lg font-semibold mb-1 text-gray-800">Excellence</h4>
                           <p className="text-gray-600 text-xs md:text-sm">Delivering solutions that exceed expectations</p>
                         </div>
-                        <div className="glass-card rounded-lg p-4 bg-tintto-blue/5">
+                        <div className="glass-card rounded-lg p-3 md:p-4 bg-tintto-blue/5">
                           <h4 className="text-base md:text-lg font-semibold mb-1 text-gray-800">Responsibility</h4>
                           <p className="text-gray-600 text-xs md:text-sm">Prioritizing ethical and sustainable practices</p>
                         </div>

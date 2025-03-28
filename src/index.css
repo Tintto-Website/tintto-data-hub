@@ -184,3 +184,22 @@
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
+
+/* Additional helper classes for better mobile experience */
+.mobile-card-container {
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.mobile-card-container::-webkit-scrollbar {
+  width: 4px;
+}
+
+.mobile-card-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mobile-card-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
