@@ -7,6 +7,7 @@ import { ArrowRight, BrainCircuit, BarChart3 } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import ServiceCard from "@/components/ServiceCard";
 import UseCaseCard from "@/components/UseCaseCard";
+
 const Index = () => {
   const [activeFilter, setActiveFilter] = useState("AI Automation");
   const useCases = [{
@@ -355,11 +356,14 @@ const Index = () => {
     tags: ["Business Intelligence", "LLMs"],
     delay: 300
   }];
+
   const filters = ["Healthcare", "Finance", "Marketing", "Performance Metrics", "AI Automation", "Machine Learning", "Data Enrichment", "Strategic Planning", "LLMs", "Supply Chain", "Task Automation", "Business Intelligence", "Recruitment", "Brand Positioning", "Revenue Optimization", "Human Resources", "Customer Support", "Sales Enablement", "Customer Experience", "Manufacturing", "Cybersecurity", "Product Development", "Retail & E-commerce", "Legal", "Education & Training", "Cloud Solutions"];
   const filteredUseCases = activeFilter ? useCases.filter(useCase => useCase.tags.includes(activeFilter)) : useCases;
+
   const handleFilterClick = (filter: string) => {
     setActiveFilter(filter === activeFilter ? "" : filter);
   };
+
   return <div className="min-h-screen flex flex-col">
       <Navbar />
       <Hero />
@@ -445,21 +449,21 @@ const Index = () => {
                     <div className="absolute inset-0 bg-slate-50"></div>
                     <div className="relative z-10 p-10">
                       <div className="grid grid-cols-2 gap-4">
-                        <div className="glass-card rounded-lg p-4 bg-tintto-blue/5">
-                          <h4 className="text-lg font-semibold mb-1 text-gray-800">Innovation</h4>
-                          <p className="text-gray-600 text-sm">Pushing boundaries with cutting-edge technology</p>
+                        <div className="glass-card rounded-lg p-4 bg-tintto-blue/5 mb-4 md:mb-0">
+                          <h4 className="text-base md:text-lg font-semibold mb-1 text-gray-800">Innovation</h4>
+                          <p className="text-gray-600 text-xs md:text-sm">Pushing boundaries with cutting-edge technology</p>
+                        </div>
+                        <div className="glass-card rounded-lg p-4 bg-tintto-blue/5 mb-4 md:mb-0">
+                          <h4 className="text-base md:text-lg font-semibold mb-1 text-gray-800">Partnership</h4>
+                          <p className="text-gray-600 text-xs md:text-sm">Working closely with clients for shared success</p>
+                        </div>
+                        <div className="glass-card rounded-lg p-4 bg-tintto-blue/5 mb-4 md:mb-0">
+                          <h4 className="text-base md:text-lg font-semibold mb-1 text-gray-800">Excellence</h4>
+                          <p className="text-gray-600 text-xs md:text-sm">Delivering solutions that exceed expectations</p>
                         </div>
                         <div className="glass-card rounded-lg p-4 bg-tintto-blue/5">
-                          <h4 className="text-lg font-semibold mb-1 text-gray-800">Partnership</h4>
-                          <p className="text-gray-600 text-sm">Working closely with clients for shared success</p>
-                        </div>
-                        <div className="glass-card rounded-lg p-4 bg-tintto-blue/5">
-                          <h4 className="text-lg font-semibold mb-1 text-gray-800">Excellence</h4>
-                          <p className="text-gray-600 text-sm">Delivering solutions that exceed expectations</p>
-                        </div>
-                        <div className="glass-card rounded-lg p-4 bg-tintto-blue/5">
-                          <h4 className="text-lg font-semibold mb-1 text-gray-800">Responsibility</h4>
-                          <p className="text-gray-600 text-sm">Prioritizing ethical and sustainable practices</p>
+                          <h4 className="text-base md:text-lg font-semibold mb-1 text-gray-800">Responsibility</h4>
+                          <p className="text-gray-600 text-xs md:text-sm">Prioritizing ethical and sustainable practices</p>
                         </div>
                       </div>
                     </div>
@@ -509,4 +513,5 @@ const Index = () => {
       <Footer />
     </div>;
 };
+
 export default Index;

@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import AnimatedSection from "./AnimatedSection";
+
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -33,6 +34,7 @@ const Hero: React.FC = () => {
       document.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
+
   return <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center items-center px-6 overflow-hidden bg-white">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-[10%] w-72 h-72 rounded-full bg-tintto-blue/5 blur-3xl parallax-element" data-speed="0.05"></div>
@@ -87,12 +89,12 @@ const Hero: React.FC = () => {
                 <div className="absolute inset-0 bg-gradient-radial from-tintto-blue/20 to-transparent rounded-full animate-glow"></div>
                 <div className="glassmorphism absolute inset-4 rounded-full glass-card flex items-center justify-center overflow-hidden border border-white/10">
                   <div className="absolute inset-0  bg-slate-50"></div>
-                  <div className="z-10 text-center p-8">
-                    <div className="mb-4 w-16 h-16 mx-auto rounded-full bg-tintto-blue/20 flex items-center justify-center">
-                      <div className="w-8 h-8 rounded-full bg-gradient-to-r from-tintto-blue to-tintto-accent"></div>
+                  <div className="z-10 text-center p-4 md:p-8">
+                    <div className="mb-4 w-12 md:w-16 h-12 md:h-16 mx-auto rounded-full bg-tintto-blue/20 flex items-center justify-center">
+                      <div className="w-6 md:w-8 h-6 md:h-8 rounded-full bg-gradient-to-r from-tintto-blue to-tintto-accent"></div>
                     </div>
-                    <h3 className="text-2xl font-bold mb-2 text-gray-800">AI-Powered Solutions</h3>
-                    <p className="text-gray-600 text-sm">Transform your business with cutting-edge AI Agents and Foundational Data Model Solutions</p>
+                    <h3 className="text-xl md:text-2xl font-bold mb-2 text-gray-800">AI-Powered Solutions</h3>
+                    <p className="text-gray-600 text-xs md:text-sm">Transform your business with cutting-edge AI Agents and Foundational Data Model Solutions</p>
                   </div>
                 </div>
               </div>
@@ -144,4 +146,5 @@ const Hero: React.FC = () => {
       </div>
     </section>;
 };
+
 export default Hero;
