@@ -2,19 +2,17 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import AnimatedSection from "./AnimatedSection";
-
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
-  
+
   // Removing the parallax mouse move effect since we're removing the floating bubbles
   useEffect(() => {
     // Empty effect
     return () => {};
   }, []);
-
   return <section ref={heroRef} className="relative min-h-screen flex flex-col justify-center items-center px-6 overflow-hidden bg-white">
       {/* Removing the background container with floating bubbles */}
-      <div className="container max-w-7xl mx-auto z-10 pt-24">
+      <div className="container max-w-7xl mx-auto z-10 pt-24 py-[110px]">
         <div className="flex flex-col lg:flex-row items-center justify-between">
           <div className="w-full lg:w-1/2 text-center lg:text-left mb-12 lg:mb-0">
             <AnimatedSection direction="up" delay={100}>
@@ -105,12 +103,11 @@ const Hero: React.FC = () => {
         </AnimatedSection>
       </div>
       
-      <div className="absolute bottom-8 left-0 right-0 flex justify-center animate-bounce z-20">
+      <div className="absolute bottom-8 left-0 right-0 flex justify-center animate-bounce z-20 py-0 mx-0 my-0">
         <div className="w-10 h-10 rounded-full border-2 border-gray-300 flex items-center justify-center bg-white/80 backdrop-blur-sm shadow-sm">
           <div className="w-1 h-3 bg-gray-400 rounded-full"></div>
         </div>
       </div>
     </section>;
 };
-
 export default Hero;
