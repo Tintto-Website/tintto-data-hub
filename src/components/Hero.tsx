@@ -3,7 +3,7 @@ import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import AnimatedSection from "./AnimatedSection";
-import { BarChart3, Brain, Rocket, ShieldCheck } from "lucide-react";
+import { BarChart3, BrainCircuit, Rocket, ShieldCheck } from "lucide-react";
 
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -58,7 +58,7 @@ const Hero: React.FC = () => {
                   <div className="absolute inset-0 bg-slate-50"></div>
                   <div className="z-10 text-center p-4 md:p-6 w-full">
                     <div className="mb-4 w-14 md:w-20 h-14 md:h-20 mx-auto rounded-full bg-tintto-blue/20 flex items-center justify-center">
-                      <Brain className="w-7 md:w-10 h-7 md:h-10 text-tintto-blue" />
+                      <BrainCircuit className="w-7 md:w-10 h-7 md:h-10 text-tintto-blue" />
                     </div>
                     <h3 className="text-lg md:text-2xl font-bold mb-2 text-gray-800">AI-Powered Solutions</h3>
                     <p className="text-gray-600 text-xs md:text-sm max-w-[90%] mx-auto">Transform your business with cutting-edge AI Agents and Foundational Data Model Solutions</p>
@@ -89,7 +89,7 @@ const Hero: React.FC = () => {
             
             <div className="highlight-card">
               <div className="w-12 h-12 rounded-lg bg-tintto-blue/20 flex items-center justify-center mb-4">
-                <Brain className="w-6 h-6 text-tintto-blue" />
+                <BrainCircuit className="w-6 h-6 text-tintto-blue" />
               </div>
               <h3 className="text-xl font-semibold mb-2 text-gray-800">Smarter Insights</h3>
               <p className="text-gray-600">Turn data into decisions with real-time analytics and dashboards.</p>
