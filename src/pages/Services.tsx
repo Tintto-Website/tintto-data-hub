@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -17,10 +16,10 @@ const Services = () => {
               Our Services
             </span>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">End-to-End AI & Data Solutions</h1>
-            <p className="text-gray-700 max-w-3xl mx-auto text-lg">
+            <p className="text-gray-700 max-w-3xl mx-auto text-lg font-bold">
               At Tintto Data Labs, we accelerate your business growth by merging two powerful streams of innovation: AI Agents and Foundational Models Data Management Platforms. 
             </p>
-            <p className="text-gray-700 max-w-3xl mx-auto text-lg mt-4">
+            <p className="text-gray-700 max-w-3xl mx-auto mt-4 text-base">
               Our intelligent AI agents automate tasks, streamline operations, and integrate seamlessly with your systems, while our foundational models data management platforms consolidate your data and transform it into actionable insights using advanced models and intuitive dashboards. This dual approach empowers you to make informed decisions and operate more efficiently.
             </p>
           </AnimatedSection>
