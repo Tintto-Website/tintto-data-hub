@@ -1,7 +1,10 @@
+
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import AnimatedSection from "./AnimatedSection";
+import { BarChart3, Brain, Rocket, ShieldCheck } from "lucide-react";
+
 const Hero: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
 
@@ -55,7 +58,7 @@ const Hero: React.FC = () => {
                   <div className="absolute inset-0 bg-slate-50"></div>
                   <div className="z-10 text-center p-4 md:p-6 w-full">
                     <div className="mb-4 w-14 md:w-20 h-14 md:h-20 mx-auto rounded-full bg-tintto-blue/20 flex items-center justify-center">
-                      <div className="w-7 md:w-10 h-7 md:h-10 rounded-full bg-gradient-to-r from-tintto-blue to-tintto-accent"></div>
+                      <Brain className="w-7 md:w-10 h-7 md:h-10 text-tintto-blue" />
                     </div>
                     <h3 className="text-lg md:text-2xl font-bold mb-2 text-gray-800">AI-Powered Solutions</h3>
                     <p className="text-gray-600 text-xs md:text-sm max-w-[90%] mx-auto">Transform your business with cutting-edge AI Agents and Foundational Data Model Solutions</p>
@@ -70,7 +73,7 @@ const Hero: React.FC = () => {
           <div className="highlights-grid">
             <div className="highlight-card">
               <div className="w-12 h-12 rounded-lg bg-tintto-blue/20 flex items-center justify-center mb-4">
-                <div className="w-6 h-6 rounded-full bg-gradient-to-r from-tintto-blue to-tintto-accent"></div>
+                <Rocket className="w-6 h-6 text-tintto-blue" />
               </div>
               <h3 className="text-xl font-semibold mb-2 text-gray-800">Increase Efficiency</h3>
               <p className="text-gray-600">Achieve up to 50% productivity gains with AI-driven automation.</p>
@@ -78,7 +81,7 @@ const Hero: React.FC = () => {
             
             <div className="highlight-card">
               <div className="w-12 h-12 rounded-lg bg-tintto-blue/20 flex items-center justify-center mb-4">
-                <div className="w-6 h-6 rounded-full bg-gradient-to-r from-tintto-blue to-tintto-accent"></div>
+                <BarChart3 className="w-6 h-6 text-tintto-blue" />
               </div>
               <h3 className="text-xl font-semibold mb-2 text-gray-800">Lower Costs</h3>
               <p className="text-gray-600">Reduce operational expenses by streamlining processes with smart technology.</p>
@@ -86,7 +89,7 @@ const Hero: React.FC = () => {
             
             <div className="highlight-card">
               <div className="w-12 h-12 rounded-lg bg-tintto-blue/20 flex items-center justify-center mb-4">
-                <div className="w-6 h-6 rounded-full bg-gradient-to-r from-tintto-blue to-tintto-accent"></div>
+                <Brain className="w-6 h-6 text-tintto-blue" />
               </div>
               <h3 className="text-xl font-semibold mb-2 text-gray-800">Smarter Insights</h3>
               <p className="text-gray-600">Turn data into decisions with real-time analytics and dashboards.</p>
@@ -94,7 +97,7 @@ const Hero: React.FC = () => {
             
             <div className="highlight-card">
               <div className="w-12 h-12 rounded-lg bg-tintto-blue/20 flex items-center justify-center mb-4">
-                <div className="w-6 h-6 rounded-full bg-gradient-to-r from-tintto-blue to-tintto-accent"></div>
+                <ShieldCheck className="w-6 h-6 text-tintto-blue" />
               </div>
               <h3 className="text-xl font-semibold mb-2 text-gray-800">Trusted Innovation</h3>
               <p className="text-gray-600">Rely on ethical, compliant solutions for long-term success.</p>
